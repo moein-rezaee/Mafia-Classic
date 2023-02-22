@@ -630,17 +630,17 @@ backward m-content span {
 .ligthShadow::after {
   content: "";
   display: flow-root;
-  width: 100%;
+  width: calc(100% - 16px);
   height: 35px;
   background: var(--ligthShadow);
   position: absolute;
-  top: -1px;
-  left: 0;
+  top: 4px;
+  left: 50%;
   border-radius: 6px;
   z-index: 100;
-  scale: 0.8;
   opacity: 0.7;
   cursor: pointer;
+  translate: -50%;
 }
 
 .ligthShadow::before {
