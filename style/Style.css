@@ -193,21 +193,21 @@ input[type="text"] {
   z-index: 100;
 }
 
-
 /* checkMark */
 
 /* Create a custom checkbox */
 .checkbox {
-  display: flow-root;
+  display: inline-block;
   position: relative;
   cursor: pointer;
+  vertical-align: top;
 }
 
-.checkbox .checkmark{
+.checkbox .checkmark {
   transition: var(--Transition);
 }
 
-.checkbox .checkmark{
+.checkbox .checkmark {
   background-color: #9b9b9b57;
 }
 
@@ -232,7 +232,6 @@ input[type="text"] {
 /* Show the checkmark when checked */
 .checkbox input:checked + .checkmark:after {
   display: block;
-
 }
 
 /* Style the checkmark/indicator */
@@ -250,8 +249,6 @@ input[type="text"] {
   transform: translate(-50%, -56%);
   transition: var(--Transition);
 }
-
-
 
 /* endCheckmarkSTyle */
 
@@ -370,18 +367,17 @@ backward m-content span {
   background-color: var(--pending);
 }
 
-.agreeColor{
+.agreeColor {
   background: var(--grdSelect);
 }
 
-.refuseColor{
+.refuseColor {
   background: var(--grdUnselect);
 }
 
 .disabled {
   filter: grayscale(1);
 }
-
 
 /* End Color */
 
@@ -787,7 +783,7 @@ backward m-content span {
   bottom: 28px;
 }
 
-.panelEvent div{
+.panelEvent div {
   display: inline-block;
 }
 
@@ -973,18 +969,17 @@ interduce .mainCaracter .cardCaracter {
   margin-left: 10px;
 }
 
-.refuse{
+.refuse {
   float: left;
 }
 
-.agreeMent{
+.agreeMent {
   float: right;
 }
 
 next .btn {
   float: right;
 }
-
 
 .arrowBtn prev .btn.arrow::after {
   transform: rotate(180deg);
@@ -1028,7 +1023,7 @@ next .btn {
   background: #e6e6e65c;
 }
 
-.managePlayer .addPlayer .ligthShadow::after{
+.managePlayer .addPlayer .ligthShadow::after {
   height: 25px;
 }
 
@@ -1053,7 +1048,6 @@ next .btn {
   gap: 5px;
   margin-bottom: 12px;
 }
-
 
 .playerCondition agree .btn {
   background: var(--grdChoose);
@@ -1112,7 +1106,11 @@ conductor {
 }
 
 .headTitleConductor .txtBox.ligthShadow::after {
-  background: linear-gradient( 0deg, rgb(137 137 137 / 12%) 0%, rgb(215 215 215 / 0%) 208% );
+  background: linear-gradient(
+    0deg,
+    rgb(137 137 137 / 12%) 0%,
+    rgb(215 215 215 / 0%) 208%
+  );
   height: 90px;
   width: calc(100% - 72px);
   top: 8px;
@@ -1159,15 +1157,15 @@ conductor {
   margin: 20px auto 0;
 }
 
-.nigthParent{
+.nigthParent {
   height: 100vh;
 }
 
 .unknow {
   display: inline-block;
-  width: 121px;
+  width: 125px;
   height: 193px;
-  /* background: linear-gradient(180deg, rgb(219 219 219) 100%, rgb(0 0 0) 100%); */
+  text-align: center;
   background-color: var(--txtDefaultColor);
   border-radius: 10px;
   overflow: hidden;
@@ -1184,7 +1182,6 @@ conductor {
 .unknowTitle.ligthShadow::after {
   background: var(--grdLigthGray);
   opacity: 0.4;
-  height: 30px;
 }
 
 .unknowTitle.ligthShadow::before {
@@ -1219,11 +1216,13 @@ conductor {
 
 .parentBtns .conductor .aboutPlay parent {
   display: flow-root;
+  width: 25%;
   padding: 0 15px 0 0;
   transform: rotate(4deg);
   font-family: var(--txtFont);
-  margin-top: -19px;
+  margin-top: 12px;
   font-size: 12pt;
+  float: right;
 }
 
 .parentBtns .conductor .aboutPlay .txtTitle {
@@ -1234,10 +1233,20 @@ conductor {
 
 .parentBtns .conductor .aboutPlay p {
   display: flow-root;
-  width: 25%;
+  width: 100%;
   float: right;
   color: var(--secondText);
   text-align: right;
+}
+
+.parentBtns .conductor .ligthShadow::after {
+  background: linear-gradient(
+    0deg,
+    rgb(137 137 137 / 12%) 0%,
+    rgb(215 215 215 / 0%) 208%
+  );
+  height: 125px;
+  left: calc(50% - 8px);
 }
 
 .parentBtns #man::before {
@@ -1277,15 +1286,14 @@ conductor {
   text-align: center;
 }
 
-
-.unknowParent btn{
+.unknowParent btn {
   display: inline-block;
   vertical-align: top;
 }
 
 /* ChooseCaracter */
 
-.choosesCaracter{
+.choosesCaracter {
   display: flow-root;
   height: 100vh;
 }
@@ -1298,20 +1306,21 @@ conductor {
   border: unset;
 }
 
-.choosesCaracter .person,
-.choosesCaracter .group {
+.choosesCaracter .person {
   display: inline-block;
   vertical-align: top;
+  width: calc(25% - 30px);
 }
 
 .choosesCaracter .group {
-  width: calc(80% - 10px);
+  display: inline-grid;
+  width: calc(80% - 50px);
+  grid-template-columns: repeat(4, 1fr);
 }
-
 
 .caracterPersonName {
   display: flow-root;
-  width: 230px;
+  width: 100%;
   padding: 10px 15px;
   text-align: right;
   border-radius: 14px;
@@ -1360,7 +1369,7 @@ conductor {
   align-items: center;
 }
 
-.btnParents .cancle{
+.btnParents .cancle {
   margin-top: 5px;
 }
 
@@ -1379,6 +1388,6 @@ conductor {
   font-size: 11pt;
 }
 
-.btnParents .nightBtns div{
+.btnParents .nightBtns div {
   margin-left: 5px;
 }
