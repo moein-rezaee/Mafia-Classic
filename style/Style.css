@@ -27,6 +27,7 @@
   --titleFont: "khandevane";
   --txtFont: "Vazir";
   --titleSize: 15pt;
+  --Transition: all 0.3 ease-in;
   /* grdSection */
   --grdSecondWarning: linear-gradient(
     0deg,
@@ -133,7 +134,7 @@
 
 body {
   display: flow-root;
-  height: 100%;
+  height: 100vh;
   background-image: url(../images/main.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -179,7 +180,7 @@ img {
   display: none !important;
 }
 
-input {
+input[type="text"] {
   display: inline-block;
   width: calc(100% - 50px);
   vertical-align: top;
@@ -189,10 +190,73 @@ input {
   border-radius: 8px;
   position: relative;
   box-sizing: border-box;
+  z-index: 100;
 }
 
-backWard {
+
+/* checkMark */
+
+/* Create a custom checkbox */
+.checkbox {
   display: flow-root;
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox .checkmark{
+  transition: var(--Transition);
+}
+
+.checkbox .checkmark{
+  background-color: #9b9b9b57;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox:hover input ~ .checkmark {
+  background-color: rgb(204 204 204 / 23%);
+  transition: var(--Transition);
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox input:checked ~ .checkmark {
+  background: var(--grdChoose);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox input:checked + .checkmark:after {
+  display: block;
+
+}
+
+/* Style the checkmark/indicator */
+.checkbox .checkmark:after {
+  content: "";
+  width: 26px;
+  height: 26px;
+  background-image: url(../Icons/tick.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -56%);
+  transition: var(--Transition);
+}
+
+
+
+/* endCheckmarkSTyle */
+
+backWard {
+  display: none;
   width: 100%;
   height: 100%;
   background-color: #0000009e;
@@ -306,9 +370,18 @@ backward m-content span {
   background-color: var(--pending);
 }
 
+.agreeColor{
+  background: var(--grdSelect);
+}
+
+.refuseColor{
+  background: var(--grdUnselect);
+}
+
 .disabled {
   filter: grayscale(1);
 }
+
 
 /* End Color */
 
@@ -423,7 +496,7 @@ backward m-content span {
   -webkit-mask-image: url(../Icons/recycle.png);
 }
 
-.moon::after{
+.moon::after {
   -webkit-mask-image: url(../Icons/Moon.png);
 }
 
@@ -630,7 +703,7 @@ backward m-content span {
 .ligthShadow::after {
   content: "";
   display: flow-root;
-  width: calc(100% - 16px);
+  width: calc(100% - 10px);
   height: 35px;
   background: var(--ligthShadow);
   position: absolute;
@@ -638,8 +711,7 @@ backward m-content span {
   left: 50%;
   border-radius: 6px;
   z-index: 100;
-  opacity: 0.7;
-  cursor: pointer;
+  opacity: 0.5;
   translate: -50%;
 }
 
@@ -701,19 +773,22 @@ backward m-content span {
   color: var(--backgroundDefault);
 }
 
-.exit .btn {
+.cancle .btn {
   background: var(--grdUnselect);
 }
 
 .start .btn {
   background: var(--grdSelect);
-  margin-left: 5px;
 }
 
 .panelEvent {
   position: absolute;
   left: 150px;
   bottom: 28px;
+}
+
+.panelEvent div{
+  display: inline-block;
 }
 
 .chooseCaracter {
@@ -898,24 +973,27 @@ interduce .mainCaracter .cardCaracter {
   margin-left: 10px;
 }
 
-next .btn {
-  background: var(--grdSelect);
+.refuse{
+  float: left;
 }
 
-.arrowBtn prev .btn {
-  background: var(--grdUnselect);
+.agreeMent{
+  float: right;
 }
+
+next .btn {
+  float: right;
+}
+
 
 .arrowBtn prev .btn.arrow::after {
   transform: rotate(180deg);
 }
 
 .arrowBtn {
-  display: flex;
+  display: flow-root;
   width: 100%;
   margin: 15px 0 0 0;
-  justify-content: space-between;
-  cursor: pointer;
 }
 
 /* addPlayer */
@@ -950,6 +1028,10 @@ next .btn {
   background: #e6e6e65c;
 }
 
+.managePlayer .addPlayer .ligthShadow::after{
+  height: 25px;
+}
+
 .managePlayer .addPlayer .btn {
   background: var(--grdSelect);
 }
@@ -960,10 +1042,6 @@ next .btn {
     rgb(216 216 216 / 42%) 0%,
     rgb(229 229 229 / 0%) 100%
   );
-  scale: 0.8;
-  top: 2px;
-  height: 28px;
-  right: -25px;
 }
 
 .playerCondition {
@@ -976,10 +1054,6 @@ next .btn {
   margin-bottom: 12px;
 }
 
-.playerCondition .input.ligthShadow::after {
-  scale: 0.9;
-  right: 0;
-}
 
 .playerCondition agree .btn {
   background: var(--grdChoose);
@@ -1038,12 +1112,10 @@ conductor {
 }
 
 .headTitleConductor .txtBox.ligthShadow::after {
-  background: linear-gradient(
-    0deg,
-    rgb(137 137 137 / 12%) 0%,
-    rgb(215 215 215 / 0%) 208%
-  );
+  background: linear-gradient( 0deg, rgb(137 137 137 / 12%) 0%, rgb(215 215 215 / 0%) 208% );
   height: 90px;
+  width: calc(100% - 72px);
+  top: 8px;
 }
 
 .headTitleConductor p {
@@ -1073,7 +1145,7 @@ conductor {
   color: var(--fourthText);
 }
 
-.arrowBtn .exit .btn {
+.arrowBtn .cancle .btn {
   width: 100px;
   color: var(--txtDefaultColor);
 }
@@ -1087,35 +1159,19 @@ conductor {
   margin: 20px auto 0;
 }
 
-/* .nigthParent{
-  height: 640px;
-} */
+.nigthParent{
+  height: 100vh;
+}
 
 .unknow {
   display: inline-block;
   width: 121px;
-  height: 198px;
+  height: 193px;
   /* background: linear-gradient(180deg, rgb(219 219 219) 100%, rgb(0 0 0) 100%); */
   background-color: var(--txtDefaultColor);
   border-radius: 10px;
   overflow: hidden;
   position: relative;
-}
-
-.selected::after {
-  content: "";
-  display: flow-root;
-  width: 100px;
-  height: 100px;
-  -webkit-mask-image: url(../Icons/tick.png);
-  -webkit-mask-size: 70px;
-  -webkit-mask-position: center;
-  -webkit-mask-repeat: no-repeat;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--grdChoose);
 }
 
 .unknowTitle {
@@ -1184,7 +1240,7 @@ conductor {
   text-align: right;
 }
 
-next::before {
+.parentBtns #man::before {
   content: "";
   display: flow-root;
   width: 210px;
@@ -1221,7 +1277,18 @@ next::before {
   text-align: center;
 }
 
+
+.unknowParent btn{
+  display: inline-block;
+  vertical-align: top;
+}
+
 /* ChooseCaracter */
+
+.choosesCaracter{
+  display: flow-root;
+  height: 100vh;
+}
 
 .choosesCaracter .unknow .selectedCaracter {
   width: 100%;
@@ -1241,11 +1308,8 @@ next::before {
   width: calc(80% - 10px);
 }
 
-.choosesCaracter .person div:first-child {
-  margin-top: 10px;
-}
 
-.choosesCaracter .person div {
+.caracterPersonName {
   display: flow-root;
   width: 230px;
   padding: 10px 15px;
@@ -1255,52 +1319,66 @@ next::before {
   margin-bottom: 15px;
   color: var(--backgroundDefault);
   font-family: var(--txtFont);
+  vertical-align: sub;
 }
 
-.person div.ligthShadow::after {
-  top: 1px;
+.caracterPersonName.ligthShadow::after {
+  top: 4px;
   height: 35px;
-  scale: 0.95;
-  border-radius: 14px;
+  border-radius: 11px;
 }
 
-.choosesCaracter .person div .personNaem {
+.caracterPersonName .personName {
   font-size: 10pt;
 }
 
-.choosesCaracter .person div.disable {
+.caracterPersonName.disable {
   background: #9b9b9b;
 }
 
-.exit .btn {
+.person .caracterPersonName show {
+  float: left;
+}
+
+.person .caracterPersonName .show::after {
+  margin-top: 2px;
+}
+
+.cancle .btn {
   width: 90px;
 }
 
-.exit .btn span {
+.cancle .btn span {
   display: flow-root;
   margin-top: 5px;
   color: var(--backgroundDefault);
 }
 
-.btnParents{
+.btnParents {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.btnParents .cancle{
+  margin-top: 5px;
 }
 
 .btnParents .nightBtns .btn {
   background: var(--grdSelect);
+  vertical-align: middle;
 }
 
-.counterGamer{
+.btnParents .nightBtns .caracterPersonName {
   display: inline-block;
-  padding: 12px 20px;
-  vertical-align: sub;
-  border-radius: 12px;
-  color: var(--backgroundDefault);
-  font-family: var(--txtFont);
-  overflow: hidden;
+  width: max-content;
+  padding: 7px 15px;
 }
 
-.counterGamer .counter{
-  vertical-align: text-bottom;
+.btnParents .nightBtns .caracterPersonName span {
+  font-size: 11pt;
+}
+
+.btnParents .nightBtns div{
+  margin-left: 5px;
 }
