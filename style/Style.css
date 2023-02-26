@@ -132,12 +132,19 @@
   --grdDie: linear-gradient(to bottom, #00000000, #ff0000c4);
 }
 
+html,
 body {
   display: flow-root;
-  height: 100vh;
   background-image: url(../images/main.png);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center bottom;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 p,
@@ -423,24 +430,27 @@ backward m-content span {
 /* Icon */
 .btn {
   display: inline-block;
-  width: 40px;
-  height: 40px;
   text-align: center;
-  border-radius: 7px;
+  border-radius: 11px;
   overflow: hidden;
   font-family: var(--titleFont);
-  font-size: var(--titleSize);
   cursor: pointer;
   border: 1px solid var(--border);
+  padding: 0px 24px 10px;
+  font-size: 24pt;
+  margin: 0 16px 0 0;
 }
 
-.btn a {
-  display: flow-root;
-  margin-top: 5px;
+.btn.ico {
+  padding: 4px 10px 10px;
 }
 
-.ico::after {
-  content: "";
+.btn.ico.rigth {
+  margin: 0 0 0 16px;
+}
+
+
+icon {
   display: flow-root;
   width: 30px;
   height: 30px;
@@ -452,47 +462,47 @@ backward m-content span {
   cursor: pointer;
 }
 
-.setting::after {
+.setting {
   -webkit-mask-image: url(../Icons/setting.png);
 }
 
-.paly::after {
+.paly {
   -webkit-mask-image: url(../Icons/nextPlay.png);
 }
 
-.voice::after {
+.voice {
   -webkit-mask-image: url(../Icons/Voice.png);
 }
 
-.tick::after {
+.tick {
   -webkit-mask-image: url(../Icons/tick.png);
 }
 
-.show::after {
+.show {
   -webkit-mask-image: url(../Icons/Show.png);
 }
 
-.close::after {
+.close {
   -webkit-mask-image: url(../Icons/exit.png);
 }
 
-.arrow::after {
+.arrow {
   -webkit-mask-image: url(../Icons/next.png);
 }
 
-.add::after {
+.add {
   -webkit-mask-image: url(../Icons/pluse.png);
 }
 
-.agree::after {
+.agree {
   -webkit-mask-image: url(../Icons/tick.png);
 }
 
-.disAgree::after {
+.disAgree {
   -webkit-mask-image: url(../Icons/recycle.png);
 }
 
-.moon::after {
+.moon {
   -webkit-mask-image: url(../Icons/Moon.png);
 }
 
@@ -757,6 +767,7 @@ backward m-content span {
   background: var(--grdLightPurpule);
   border: 1px solid #545454;
 }
+
 .start,
 .exit {
   display: inline-block;
@@ -765,40 +776,32 @@ backward m-content span {
 }
 
 .panelEvent .btn {
-  width: 100px;
   color: var(--backgroundDefault);
 }
 
-.cancle .btn {
+.btn.danger {
   background: var(--grdUnselect);
 }
 
-.start .btn {
+.btn.success {
   background: var(--grdSelect);
 }
 
 .panelEvent {
-  position: absolute;
-  left: 150px;
-  bottom: 28px;
-}
-
-.panelEvent div {
-  display: inline-block;
+  display: flow-root;
+  margin: 8px 0 0;
 }
 
 .chooseCaracter {
   display: flow-root;
-  width: 1240px;
+  width: 100%;
   margin: 25px auto 0;
   padding: 0px 20px 20px;
   border-radius: 20px;
-  background: linear-gradient(
-    180deg,
-    rgb(212 212 212) 0%,
-    rgb(159 159 159) 100%
-  );
+  background: linear-gradient( 180deg, rgb(212 212 212) 0%, rgb(159 159 159) 100% );
   border: 1px solid var(--secondText);
+  box-sizing: border-box;
+  height: calc(100% - 110px);
 }
 
 .chooseCaracter .headTitle {
@@ -828,16 +831,16 @@ backward m-content span {
 
 .chooseCaracter section {
   display: flow-root;
-  margin: 0 auto;
   background-color: var(--backgroundDefault);
   padding: 10px;
-  min-height: 500px;
   border-radius: 15px;
+  box-sizing: border-box;
+  height: calc(100% - 64px);
 }
 
 .chooseCaracter ability {
   display: inline-block;
-  width: 340px;
+  width: 280px;
   float: right;
   text-align: center;
   height: 100%;
@@ -853,8 +856,9 @@ backward m-content span {
 
 .chooseCaracter ability .imageParent {
   display: inline-block;
-  width: 210px;
+  width: 160px;
   margin-top: 30px;
+  height: 210px;
 }
 
 .chooseCaracter ability .box {
@@ -903,6 +907,8 @@ backward m-content span {
   font-family: var(--txtFont);
   text-align: right;
   padding: 8px;
+  font-size: 11pt;
+  line-height: 22pt;
 }
 
 .box name .warning {
@@ -969,27 +975,18 @@ interduce .mainCaracter .cardCaracter {
   margin-left: 10px;
 }
 
-.refuse {
+.left {
   float: left;
 }
 
-.agreeMent {
+.rigth {
   float: right;
 }
 
-next .btn {
-  float: right;
-}
-
-.arrowBtn prev .btn.arrow::after {
+.btn.prev icon {
   transform: rotate(180deg);
 }
 
-.arrowBtn {
-  display: flow-root;
-  width: 100%;
-  margin: 15px 0 0 0;
-}
 
 /* addPlayer */
 
@@ -1141,11 +1138,6 @@ conductor {
 
 .friend {
   color: var(--fourthText);
-}
-
-.arrowBtn .cancle .btn {
-  width: 100px;
-  color: var(--txtDefaultColor);
 }
 
 /* nigthCaracyer */
@@ -1351,10 +1343,6 @@ conductor {
 
 .person .caracterPersonName .show::after {
   margin-top: 2px;
-}
-
-.cancle .btn {
-  width: 90px;
 }
 
 .cancle .btn span {
