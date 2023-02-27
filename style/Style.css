@@ -187,17 +187,19 @@ img {
   display: none !important;
 }
 
-input[type="text"] {
+.inputBox input[type="text"] {
   display: inline-block;
-  width: calc(100% - 50px);
+  width: 100%;
   vertical-align: top;
   border: 1px solid var(--border);
   text-align: right;
-  padding: 11px;
+  padding: 11px 12px;
   border-radius: 8px;
   position: relative;
   box-sizing: border-box;
   z-index: 100;
+  outline: none;
+  font-size: 12pt;
 }
 
 /* checkMark */
@@ -374,9 +376,9 @@ backward m-content span {
   background-color: var(--pending);
 }
 
-.agreeColor {
+/* .agreeColor {
   background: var(--grdSelect);
-}
+} */
 
 .refuseColor {
   background: var(--grdUnselect);
@@ -436,13 +438,14 @@ backward m-content span {
   font-family: var(--titleFont);
   cursor: pointer;
   border: 1px solid var(--border);
-  padding: 0px 24px 10px;
+  padding: 0px 24px 6px;
   font-size: 24pt;
   margin: 0 16px 0 0;
+  color: var(--txtDefaultColor);
 }
 
 .btn.ico {
-  padding: 4px 10px 10px;
+  padding: 0 6px 5px;
 }
 
 .btn.ico.rigth {
@@ -716,7 +719,7 @@ icon {
   top: 4px;
   left: 50%;
   border-radius: 6px;
-  z-index: 100;
+  z-index: 0;
   opacity: 0.5;
   translate: -50%;
 }
@@ -822,11 +825,11 @@ icon {
 
 :is(.chooseCaracter .title) :is(h1, h2) {
   display: inline-block;
+  font-size: 24pt;
 }
 
 .chooseCaracter .headTitle h2 {
   color: var(--fourthText);
-  font-size: 27pt;
 }
 
 .chooseCaracter section {
@@ -836,6 +839,7 @@ icon {
   border-radius: 15px;
   box-sizing: border-box;
   height: calc(100% - 64px);
+  position: relative;
 }
 
 .chooseCaracter ability {
@@ -992,28 +996,19 @@ interduce .mainCaracter .cardCaracter {
 
 .managePlayer {
   display: inline-block;
-  width: calc(50% - 10px);
+  width: calc(100% - 340px);
   float: right;
 }
 
-.playerCondition .input input {
+.inputBox {
+  display: flow-root;
   width: 100%;
-  border: unset;
-}
-
-.playerName.chooseCaracter {
-  width: 800px;
 }
 
 .managePlayer .parent {
   display: flow-root;
   text-align: right;
   margin-bottom: 8px;
-}
-
-.managePlayer .parent add {
-  float: left;
-  position: relative;
 }
 
 .managePlayer .addPlayer input {
@@ -1028,7 +1023,12 @@ interduce .mainCaracter .cardCaracter {
   background: var(--grdSelect);
 }
 
-.input.ligthShadow::after {
+.addPlayer .inputBox {
+  width: calc(100% - 60px);
+  float: right;
+}
+
+.inputBox.ligthShadow::after {
   background: linear-gradient(
     180deg,
     rgb(216 216 216 / 42%) 0%,
@@ -1056,7 +1056,7 @@ interduce .mainCaracter .cardCaracter {
   float: left;
 }
 
-.playerCondition .input {
+.playerCondition .inputBox {
   width: calc(100% - 90px);
   border: unset;
 }
@@ -1065,18 +1065,21 @@ interduce .mainCaracter .cardCaracter {
   position: relative;
 }
 
-.Conductor {
+.conductor {
   display: inline-block;
-  width: calc(50% - 10px);
+  width: 340px;
   position: relative;
+  height: 100%;
 }
 
-conductor {
+.conductorBox {
   display: flow-root;
-  width: 300px;
-  height: 350px;
+  width: 164px;
+  height: 216px;
   position: absolute;
-  top: 194px;
+  bottom: -26px;
+  left: 50%;
+  translate: -50% 0;
 }
 
 .headTitleConductor {
@@ -1087,18 +1090,17 @@ conductor {
   background-position: center;
   background-size: 292px;
   transform: rotate(2deg);
-  margin-top: 17px;
-  margin-right: 40px;
+  margin-top: 16px;
 }
 
 .headTitleConductor .txtBox {
   display: flow-root;
-  width: 100%;
+  width: 90%;
   transform: rotate(2deg);
   font-family: var(--txtFont);
   text-align: right;
   font-size: 9pt;
-  margin-top: 10px;
+  margin: 10px auto 0;
   position: relative;
 }
 
@@ -1115,17 +1117,16 @@ conductor {
 
 .headTitleConductor p {
   display: block;
-  width: calc(100% - 73px);
-  margin: 0 0 0 34px;
+  margin: 0 18px;
+  text-align: center;
   color: var(--secondText);
-  line-height: 2;
-  font-size: 9.5pt;
+  line-height: 19pt;
+  font-size: 11pt;
 }
 
 .headTitleConductor .boxTitle {
   display: flow-root;
-  width: calc(100% - 30px);
-  margin-top: 15px;
+  margin: 8px;
   font-family: var(--txtFont);
   color: var(--secondText);
   font-size: 12pt;
