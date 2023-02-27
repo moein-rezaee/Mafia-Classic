@@ -259,6 +259,13 @@ img {
   transition: var(--Transition);
 }
 
+/* for caracter */
+
+.checkbox .checkmark.btn{
+  margin: unset;
+  padding: 20px;
+}
+
 /* endCheckmarkSTyle */
 
 backWard {
@@ -1066,10 +1073,7 @@ interduce .mainCaracter .cardCaracter {
 }
 
 .conductor {
-  display: inline-block;
   width: 340px;
-  position: relative;
-  height: 100%;
 }
 
 .conductorBox {
@@ -1150,9 +1154,6 @@ interduce .mainCaracter .cardCaracter {
   margin: 20px auto 0;
 }
 
-.nigthParent {
-  height: 100vh;
-}
 
 .unknow {
   display: inline-block;
@@ -1189,61 +1190,52 @@ interduce .mainCaracter .cardCaracter {
   width: 50%;
 }
 
-.parentBtns .conductor {
+
+.parentBtns{
   display: flow-root;
-  width: 100%;
-  position: relative;
+  margin-top: 20px;
 }
 
 .parentBtns .conductor .aboutPlay {
   display: flow-root;
+  width: 100%;
   background-image: url(../Icons/interduc.png);
   background-repeat: no-repeat;
   background-position: right;
   background-size: contain;
-  height: 210px;
-  position: absolute;
-  top: -415px;
-  right: 0;
+  float: right;
+  height: 230px;
+  margin: -200px 80px 0 0;
 }
 
 .parentBtns .conductor .aboutPlay parent {
   display: flow-root;
-  width: 25%;
-  padding: 0 15px 0 0;
+  width: calc(100% - 50px);
   transform: rotate(4deg);
   font-family: var(--txtFont);
-  margin-top: 12px;
   font-size: 12pt;
   float: right;
+  line-height: 1.7;
+  margin: 16px 20px 0 0;
 }
 
 .parentBtns .conductor .aboutPlay .txtTitle {
   display: flow-root;
-  width: 100%;
   text-align: right;
 }
 
 .parentBtns .conductor .aboutPlay p {
   display: flow-root;
-  width: 100%;
-  float: right;
   color: var(--secondText);
   text-align: right;
 }
 
 .parentBtns .conductor .ligthShadow::after {
-  background: linear-gradient(
-    0deg,
-    rgb(137 137 137 / 12%) 0%,
-    rgb(215 215 215 / 0%) 208%
-  );
-  height: 125px;
-  left: calc(50% - 8px);
+  background: linear-gradient( 0deg, rgb(137 137 137 / 12%) 0%, rgb(215 215 215 / 0%) 208% );
+  height: 140px;
 }
 
-.parentBtns #man::before {
-  content: "";
+.parentBtns .arrowBtn .man  {
   display: flow-root;
   width: 210px;
   background-image: url(../images/conductor.png);
@@ -1251,9 +1243,8 @@ interduce .mainCaracter .cardCaracter {
   background-size: 200px;
   background-position: center;
   height: 270px;
-  position: absolute;
-  left: -230px;
-  top: -190px;
+  float: right;
+  margin: -200px 0 0 28px;
 }
 
 .backWardTitle.ligthShadow::after {
