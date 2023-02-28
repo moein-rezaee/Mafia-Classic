@@ -29,104 +29,74 @@
   --titleSize: 15pt;
   --Transition: all 0.3 ease-in;
   /* grdSection */
-  --grdSecondWarning: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(104, 21, 21, 1) 0%,
-    rgba(225, 45, 45, 1) 86%,
-    rgba(225, 45, 45, 1) 100%,
-    rgba(0, 0, 0, 1) 100%
-  );
+  --grdSecondWarning: linear-gradient(0deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(104, 21, 21, 1) 0%,
+      rgba(225, 45, 45, 1) 86%,
+      rgba(225, 45, 45, 1) 100%,
+      rgba(0, 0, 0, 1) 100%);
 
-  --grdAccept: linear-gradient(
-    360deg,
-    rgba(39, 28, 227, 0) 0%,
-    rgba(137, 255, 124, 1) 100%
-  );
+  --grdAccept: linear-gradient(360deg,
+      rgba(39, 28, 227, 0) 0%,
+      rgba(137, 255, 124, 1) 100%);
 
-  --grdSecondAccept: linear-gradient(
-    180deg,
-    rgba(39, 28, 227, 0) 0%,
-    rgb(73 242 54 / 94%) 100%
-  );
+  --grdSecondAccept: linear-gradient(180deg,
+      rgba(39, 28, 227, 0) 0%,
+      rgb(73 242 54 / 94%) 100%);
 
-  --grdSelect: linear-gradient(
-    180deg,
-    rgba(95, 248, 67, 1) -13%,
-    rgba(80, 223, 132, 1) 52%,
-    rgb(54 178 244 / 85%) 122%
-  );
+  --grdSelect: linear-gradient(180deg,
+      rgba(95, 248, 67, 1) -13%,
+      rgba(80, 223, 132, 1) 52%,
+      rgb(54 178 244 / 85%) 122%);
 
-  --grdUnselect: linear-gradient(
-    180deg,
-    rgba(255, 158, 51, 1) 0%,
-    rgba(255, 91, 51, 1) 50%
-  );
+  --grdUnselect: linear-gradient(180deg,
+      rgba(255, 158, 51, 1) 0%,
+      rgba(255, 91, 51, 1) 50%);
 
-  --grdLightPurpule: linear-gradient(
-    180deg,
-    rgba(229, 51, 255, 1) 0%,
-    rgba(167, 51, 255, 1) 100%
-  );
+  --grdLightPurpule: linear-gradient(180deg,
+      rgba(229, 51, 255, 1) 0%,
+      rgba(167, 51, 255, 1) 100%);
 
-  --grdLightPink: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(255, 51, 51, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  --grdLightPink: linear-gradient(90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(255, 51, 51, 1) 35%,
+      rgba(0, 212, 255, 1) 100%);
 
-  --grdCity: linear-gradient(
-    180deg,
-    rgba(39, 28, 227, 0) 0%,
-    rgba(96, 164, 253, 1) 100%
-  );
+  --grdCity: linear-gradient(180deg,
+      rgba(39, 28, 227, 0) 0%,
+      rgba(96, 164, 253, 1) 100%);
 
-  --grdSoftRed: linear-gradient(
-    360deg,
-    rgba(39, 28, 227, 0) 0%,
-    rgba(255, 195, 195, 1) 100%
-  );
+  --grdSoftRed: linear-gradient(360deg,
+      rgba(39, 28, 227, 0) 0%,
+      rgba(255, 195, 195, 1) 100%);
 
-  --grdHardBlue: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(45, 123, 225, 1) 0%,
-    rgba(44, 123, 225, 1) 14.000000000000002%,
-    rgba(20, 57, 103, 1) 79%
-  );
+  --grdHardBlue: linear-gradient(180deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(45, 123, 225, 1) 0%,
+      rgba(44, 123, 225, 1) 14.000000000000002%,
+      rgba(20, 57, 103, 1) 79%);
 
-  --ligthShadow: linear-gradient(
-    360deg,
-    rgba(39, 28, 227, 0) 0%,
-    rgba(255, 255, 255, 0.648424) 100%
-  );
+  --ligthShadow: linear-gradient(360deg,
+      rgba(39, 28, 227, 0) 0%,
+      rgba(255, 255, 255, 0.648424) 100%);
 
-  --grdLigthGray: linear-gradient(
-    0deg,
-    rgb(137 137 137 / 0%) 0%,
-    rgb(215 215 215) 208%
-  );
+  --grdLigthGray: linear-gradient(0deg,
+      rgb(137 137 137 / 0%) 0%,
+      rgb(215 215 215) 208%);
 
-  --grdSecondDisabled: linear-gradient(
-    180deg,
-    rgba(39, 28, 227, 0) 0%,
-    rgba(0, 0, 0, 0.7148109243697479) 100%
-  );
+  --grdSecondDisabled: linear-gradient(180deg,
+      rgba(39, 28, 227, 0) 0%,
+      rgba(0, 0, 0, 0.7148109243697479) 100%);
 
-  --grdChoose: linear-gradient(
-    180deg,
-    rgb(110 208 80) 0%,
-    rgba(140, 255, 61, 1) 25%,
-    rgb(190 255 73) 50%
-  );
+  --grdChoose: linear-gradient(180deg,
+      rgb(110 208 80) 0%,
+      rgba(140, 255, 61, 1) 25%,
+      rgb(190 255 73) 50%);
 
-  --grdShadowText: linear-gradient(
-    0deg,
-    rgb(137 137 137 / 21%) 0%,
-    rgb(215 215 215) 208%
-  );
+  --grdShadowText: linear-gradient(0deg,
+      rgb(137 137 137 / 21%) 0%,
+      rgb(215 215 215) 208%);
 
   --grdShadowTop: linear-gradient(to bottom, #0000001c, #0000);
   --grdDie: linear-gradient(to bottom, #00000000, #ff0000c4);
@@ -193,13 +163,13 @@ img {
   vertical-align: top;
   border: 1px solid var(--border);
   text-align: right;
-  padding: 11px 12px;
+  padding: 11px 12px 15px;
   border-radius: 8px;
   position: relative;
   box-sizing: border-box;
   z-index: 100;
   outline: none;
-  font-size: 12pt;
+  font-size: 16pt;
 }
 
 /* checkMark */
@@ -221,13 +191,13 @@ img {
 }
 
 /* On mouse-over, add a grey background color */
-.checkbox:hover input ~ .checkmark {
+.checkbox:hover input~.checkmark {
   background-color: rgb(204 204 204 / 23%);
   transition: var(--Transition);
 }
 
 /* When the checkbox is checked, add a blue background */
-.checkbox input:checked ~ .checkmark {
+.checkbox input:checked~.checkmark {
   background: var(--grdChoose);
 }
 
@@ -239,15 +209,15 @@ img {
 }
 
 /* Show the checkmark when checked */
-.checkbox input:checked + .checkmark:after {
+.checkbox input:checked+.checkmark:after {
   display: block;
 }
 
 /* Style the checkmark/indicator */
 .checkbox .checkmark:after {
   content: "";
-  width: 26px;
-  height: 26px;
+  width: 65%;
+  height: 65%;
   background-image: url(../Icons/tick.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -255,15 +225,15 @@ img {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -56%);
+  transform: translate(-50%, -50%);
   transition: var(--Transition);
 }
 
 /* for caracter */
 
-.checkbox .checkmark.btn{
+.checkbox .checkmark.btn {
   margin: unset;
-  padding: 20px;
+  padding: 24px;
 }
 
 /* endCheckmarkSTyle */
@@ -281,11 +251,9 @@ backWard {
 
 backWard parent {
   display: inline-block;
-  background: linear-gradient(
-    180deg,
-    rgb(212 212 212) 0%,
-    rgb(159 159 159) 100%
-  );
+  background: linear-gradient(180deg,
+      rgb(212 212 212) 0%,
+      rgb(159 159 159) 100%);
   padding: 10px;
   position: absolute;
   left: 50%;
@@ -351,11 +319,17 @@ backward m-content span {
   color: var(--Warning);
 }
 
-.bgMafia {
+.btn.mafia {
   background-color: var(--Warning);
 }
 
-.bgCity {
+.btn:is(.mafia, .city) {
+  font-size: 18pt;
+  font-family: var(--txtFont);
+  padding: 8px 16px 6px;
+}
+
+.btn.city {
   background-color: var(--thirdText);
 }
 
@@ -391,7 +365,7 @@ backward m-content span {
   background: var(--grdUnselect);
 }
 
-.disabled {
+.cardCaracter.disabled {
   filter: grayscale(1);
 }
 
@@ -438,7 +412,8 @@ backward m-content span {
 
 /* Icon */
 .btn {
-  display: inline-block;
+  display: flow-root;
+  float: left;
   text-align: center;
   border-radius: 11px;
   overflow: hidden;
@@ -462,14 +437,15 @@ backward m-content span {
 
 icon {
   display: flow-root;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
   -webkit-mask-size: 22px;
   background-color: var(--backgroundDefault);
   margin: 5px auto 0;
   cursor: pointer;
+  float: left;
 }
 
 .setting {
@@ -529,15 +505,15 @@ icon {
 
 .cardCaracter {
   display: inline-block;
-  width: 80px;
-  height: 147px;
-  padding: 0 20px 20px 20px;
+  width: 100%;
+  height: calc(100% - 25px);
+  padding: 0 14px 0;
   border-radius: 10px;
-  margin-top: 20px;
   overflow: hidden;
   border: 1px solid var(--border);
   position: relative;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .cardCaracter::before {
@@ -545,11 +521,9 @@ icon {
   display: flow-root;
   width: 100%;
   height: 200px;
-  background: linear-gradient(
-    180deg,
-    rgba(15, 155, 161, 0) 0%,
-    rgb(0 0 0 / 13%) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(15, 155, 161, 0) 0%,
+      rgb(0 0 0 / 13%) 100%);
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -561,7 +535,8 @@ icon {
   display: flow-root;
   width: 100%;
   position: relative;
-  margin: 30px auto 0;
+  margin: 0 auto;
+  height: calc(100% - 24px);
 }
 
 /* image */
@@ -572,7 +547,7 @@ icon {
   width: 100%;
   height: 150px;
   -webkit-mask-image: url(../images/shield.png);
-  -webkit-mask-size: contain;
+  -webkit-mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
   position: absolute;
@@ -610,7 +585,7 @@ icon {
 .imageBox div {
   display: flow-root;
   width: 100%;
-  height: 100px;
+  height: 100%;
   position: relative;
   z-index: 1;
   margin: 0 auto;
@@ -619,21 +594,17 @@ icon {
 .imageBox div::before {
   content: "";
   display: flow-root;
-  width: 92%;
+  width: 100%;
   height: 125px;
   -webkit-mask-image: url(../images/MafiaGroups/shadowShiled.png);
   -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: contain;
-  background: linear-gradient(
-    180deg,
-    rgba(15, 155, 161, 0) 26%,
-    rgba(0, 0, 0, 0.378396) 97%
-  );
+  -webkit-mask-size: 92% 100%;
+  background: linear-gradient(180deg, rgba(15, 155, 161, 0) 26%, rgba(0, 0, 0, 0.378396) 97%);
   position: absolute;
   top: 50%;
   left: 50%;
-  scale: 0.95;
-  transform: translate(-53%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-mask-position: center;
 }
 
 /* EndImage */
@@ -649,6 +620,7 @@ icon {
   position: relative;
   overflow: hidden;
   z-index: 10;
+  margin: -12px 0 0;
 }
 
 .nameBox::before {
@@ -656,11 +628,9 @@ icon {
   display: flow-root;
   width: 100%;
   height: 20px;
-  background: linear-gradient(
-    180deg,
-    rgba(15, 155, 161, 0) 0%,
-    rgba(0, 0, 0, 0.578396) 166%
-  );
+  background: linear-gradient(180deg,
+      rgba(15, 155, 161, 0) 0%,
+      rgba(0, 0, 0, 0.578396) 166%);
   position: absolute;
   bottom: 0;
 }
@@ -668,9 +638,11 @@ icon {
 .title {
   display: inline-block;
   font-family: var(--titleFont);
-  font-size: 11pt;
-  margin: -3px 0;
+  font-size: 14pt;
+  margin: -5px 0;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 /* endImage */
@@ -802,13 +774,18 @@ icon {
   margin: 8px 0 0;
 }
 
+.panelEvent.welcomePage {
+  position: absolute;
+  bottom: 30px;
+}
+
 .chooseCaracter {
   display: flow-root;
   width: 100%;
   margin: 25px auto 0;
   padding: 0px 20px 20px;
   border-radius: 20px;
-  background: linear-gradient( 180deg, rgb(212 212 212) 0%, rgb(159 159 159) 100% );
+  background: linear-gradient(180deg, rgb(212 212 212) 0%, rgb(159 159 159) 100%);
   border: 1px solid var(--secondText);
   box-sizing: border-box;
   height: calc(100% - 110px);
@@ -1002,9 +979,11 @@ interduce .mainCaracter .cardCaracter {
 /* addPlayer */
 
 .managePlayer {
-  display: inline-block;
+  display: flow-root;
   width: calc(100% - 340px);
   float: right;
+  height: 100%;
+  overflow: auto;
 }
 
 .inputBox {
@@ -1031,40 +1010,36 @@ interduce .mainCaracter .cardCaracter {
 }
 
 .addPlayer .inputBox {
-  width: calc(100% - 60px);
+  width: calc(100% - 64px);
   float: right;
 }
 
+.addPlayer .btn {
+  margin-right: 8px;
+}
+
 .inputBox.ligthShadow::after {
-  background: linear-gradient(
-    180deg,
-    rgb(216 216 216 / 42%) 0%,
-    rgb(229 229 229 / 0%) 100%
-  );
+  background: linear-gradient(180deg,
+      rgb(216 216 216 / 42%) 0%,
+      rgb(229 229 229 / 0%) 100%);
+}
+
+.playerCondition .btn {
+  margin-right: 8px;
 }
 
 .playerCondition {
-  display: flex;
+  display: flow-root;
   border: 1px solid var(--border);
   border-radius: 8px;
   justify-content: space-between;
-  padding: 5px;
+  padding: 10px 10px 6px;
   gap: 5px;
   margin-bottom: 12px;
 }
 
-.playerCondition agree .btn {
-  background: var(--grdChoose);
-  float: right;
-}
-
-.playerCondition remove .btn {
-  background: var(--grdUnselect);
-  float: left;
-}
-
 .playerCondition .inputBox {
-  width: calc(100% - 90px);
+  width: calc(100% - 118px);
   border: unset;
 }
 
@@ -1074,6 +1049,8 @@ interduce .mainCaracter .cardCaracter {
 
 .conductor {
   width: 340px;
+  position: relative;
+  height: 100%;
 }
 
 .conductorBox {
@@ -1109,11 +1086,9 @@ interduce .mainCaracter .cardCaracter {
 }
 
 .headTitleConductor .txtBox.ligthShadow::after {
-  background: linear-gradient(
-    0deg,
-    rgb(137 137 137 / 12%) 0%,
-    rgb(215 215 215 / 0%) 208%
-  );
+  background: linear-gradient(0deg,
+      rgb(137 137 137 / 12%) 0%,
+      rgb(215 215 215 / 0%) 208%);
   height: 90px;
   width: calc(100% - 72px);
   top: 8px;
@@ -1157,8 +1132,8 @@ interduce .mainCaracter .cardCaracter {
 
 .unknow {
   display: inline-block;
-  width: 125px;
-  height: 193px;
+  width: 150px;
+  height: 200px;
   text-align: center;
   background-color: var(--txtDefaultColor);
   border-radius: 10px;
@@ -1186,12 +1161,7 @@ interduce .mainCaracter .cardCaracter {
   margin-top: unset;
 }
 
-.unknow .imageBox div {
-  width: 50%;
-}
-
-
-.parentBtns{
+.parentBtns {
   display: flow-root;
   margin-top: 20px;
 }
@@ -1231,11 +1201,11 @@ interduce .mainCaracter .cardCaracter {
 }
 
 .parentBtns .conductor .ligthShadow::after {
-  background: linear-gradient( 0deg, rgb(137 137 137 / 12%) 0%, rgb(215 215 215 / 0%) 208% );
+  background: linear-gradient(0deg, rgb(137 137 137 / 12%) 0%, rgb(215 215 215 / 0%) 208%);
   height: 140px;
 }
 
-.parentBtns .arrowBtn .man  {
+.parentBtns .arrowBtn .man {
   display: flow-root;
   width: 210px;
   background-image: url(../images/conductor.png);
@@ -1279,7 +1249,8 @@ interduce .mainCaracter .cardCaracter {
 
 .choosesCaracter {
   display: flow-root;
-  height: 100vh;
+  margin-top: 30px;
+  height: calc(100% - 108px);
 }
 
 .choosesCaracter .unknow .selectedCaracter {
@@ -1294,12 +1265,17 @@ interduce .mainCaracter .cardCaracter {
   display: inline-block;
   vertical-align: top;
   width: calc(25% - 30px);
+  height: 100%;
+  overflow: auto;
 }
 
 .choosesCaracter .group {
   display: inline-grid;
   width: calc(80% - 50px);
   grid-template-columns: repeat(4, 1fr);
+  gap: 12px 0;
+  height: 100%;
+overflow: auto;
 }
 
 .caracterPersonName {
@@ -1325,7 +1301,14 @@ interduce .mainCaracter .cardCaracter {
   font-size: 10pt;
 }
 
-.caracterPersonName.disable {
+.person .btn span {
+  display: flow-root;
+  float: right;
+  margin-top: 8px;
+  font-size: 16pt;
+}
+
+.btn.disable {
   background: #9b9b9b;
 }
 
@@ -1337,37 +1320,27 @@ interduce .mainCaracter .cardCaracter {
   margin-top: 2px;
 }
 
+.person .btn {
+  float: unset;
+  margin:0 0 8px 0 ;
+}
+
 .cancle .btn span {
   display: flow-root;
   margin-top: 5px;
   color: var(--backgroundDefault);
 }
 
-.btnParents {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.btnParents .cancle {
-  margin-top: 5px;
-}
-
-.btnParents .nightBtns .btn {
-  background: var(--grdSelect);
-  vertical-align: middle;
-}
-
-.btnParents .nightBtns .caracterPersonName {
+.nightBtns .caracterPersonName {
   display: inline-block;
   width: max-content;
   padding: 7px 15px;
 }
 
-.btnParents .nightBtns .caracterPersonName span {
+.nightBtns .caracterPersonName span {
   font-size: 11pt;
 }
 
-.btnParents .nightBtns div {
+.nightBtns div {
   margin-left: 5px;
 }
