@@ -213,11 +213,11 @@ img {
 }
 
 .checkbox .checkmark {
+  display: flow-root;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #9b9b9b;
   transition: var(--Transition);
-}
-
-.checkbox .checkmark {
-  background-color: #9b9b9b57;
 }
 
 /* On mouse-over, add a grey background color */
@@ -261,7 +261,7 @@ img {
 
 /* for caracter */
 
-.checkbox .checkmark.btn{
+.checkbox .checkmark.btn {
   margin: unset;
   padding: 20px;
 }
@@ -458,7 +458,6 @@ backward m-content span {
 .btn.ico.rigth {
   margin: 0 0 0 16px;
 }
-
 
 icon {
   display: flow-root;
@@ -808,7 +807,11 @@ icon {
   margin: 25px auto 0;
   padding: 0px 20px 20px;
   border-radius: 20px;
-  background: linear-gradient( 180deg, rgb(212 212 212) 0%, rgb(159 159 159) 100% );
+  background: linear-gradient(
+    180deg,
+    rgb(212 212 212) 0%,
+    rgb(159 159 159) 100%
+  );
   border: 1px solid var(--secondText);
   box-sizing: border-box;
   height: calc(100% - 110px);
@@ -998,7 +1001,6 @@ interduce .mainCaracter .cardCaracter {
   transform: rotate(180deg);
 }
 
-
 /* addPlayer */
 
 .managePlayer {
@@ -1145,6 +1147,17 @@ interduce .mainCaracter .cardCaracter {
   color: var(--fourthText);
 }
 
+.card {
+  display: inline-block;
+  width: 125px;
+  height: 193px;
+  text-align: center;
+  background-color: var(--txtDefaultColor);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
 /* nigthCaracyer */
 
 .nightCard {
@@ -1153,7 +1166,6 @@ interduce .mainCaracter .cardCaracter {
   grid-gap: 15px;
   margin: 20px auto 0;
 }
-
 
 .unknow {
   display: inline-block;
@@ -1166,32 +1178,31 @@ interduce .mainCaracter .cardCaracter {
   position: relative;
 }
 
-.unknowTitle {
+.cardtitle {
   display: flow-root;
   text-align: center;
   font-family: var(--txtFont);
   color: var(--secondText);
 }
 
-.unknowTitle.ligthShadow::after {
+.cardTitle.ligthShadow::after {
   background: var(--grdLigthGray);
   opacity: 0.4;
 }
 
-.unknowTitle.ligthShadow::before {
+.cardTitle.ligthShadow::before {
   display: none;
 }
 
-.unknow .cardCaracter {
+.card .cardCaracter {
   margin-top: unset;
 }
 
-.unknow .imageBox div {
+.card .imageBox div {
   width: 50%;
 }
 
-
-.parentBtns{
+.parentBtns {
   display: flow-root;
   margin-top: 20px;
 }
@@ -1231,11 +1242,15 @@ interduce .mainCaracter .cardCaracter {
 }
 
 .parentBtns .conductor .ligthShadow::after {
-  background: linear-gradient( 0deg, rgb(137 137 137 / 12%) 0%, rgb(215 215 215 / 0%) 208% );
+  background: linear-gradient(
+    0deg,
+    rgb(137 137 137 / 12%) 0%,
+    rgb(215 215 215 / 0%) 208%
+  );
   height: 140px;
 }
 
-.parentBtns .arrowBtn .man  {
+.parentBtns .arrowBtn .man {
   display: flow-root;
   width: 210px;
   background-image: url(../images/conductor.png);
