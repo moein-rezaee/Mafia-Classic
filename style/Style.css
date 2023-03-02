@@ -29,104 +29,74 @@
   --titleSize: 15pt;
   --Transition: all 0.3 ease-in;
   /* grdSection */
-  --grdSecondWarning: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(104, 21, 21, 1) 0%,
-    rgba(225, 45, 45, 1) 86%,
-    rgba(225, 45, 45, 1) 100%,
-    rgba(0, 0, 0, 1) 100%
-  );
+  --grdSecondWarning: linear-gradient(0deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(104, 21, 21, 1) 0%,
+      rgba(225, 45, 45, 1) 86%,
+      rgba(225, 45, 45, 1) 100%,
+      rgba(0, 0, 0, 1) 100%);
 
-  --grdAccept: linear-gradient(
-    360deg,
-    rgba(39, 28, 227, 0) 0%,
-    rgba(137, 255, 124, 1) 100%
-  );
+  --grdAccept: linear-gradient(360deg,
+      rgba(39, 28, 227, 0) 0%,
+      rgba(137, 255, 124, 1) 100%);
 
-  --grdSecondAccept: linear-gradient(
-    180deg,
-    rgba(39, 28, 227, 0) 0%,
-    rgb(73 242 54 / 94%) 100%
-  );
+  --grdSecondAccept: linear-gradient(180deg,
+      #fff,
+      rgb(73 242 54 / 94%) 100%);
 
-  --grdSelect: linear-gradient(
-    180deg,
-    rgba(95, 248, 67, 1) -13%,
-    rgba(80, 223, 132, 1) 52%,
-    rgb(54 178 244 / 85%) 122%
-  );
+  --grdSelect: linear-gradient(180deg,
+      rgba(95, 248, 67, 1) -13%,
+      rgba(80, 223, 132, 1) 52%,
+      rgb(54 178 244 / 85%) 122%);
 
-  --grdUnselect: linear-gradient(
-    180deg,
-    rgba(255, 158, 51, 1) 0%,
-    rgba(255, 91, 51, 1) 50%
-  );
+  --grdUnselect: linear-gradient(180deg,
+      rgba(255, 158, 51, 1) 0%,
+      rgba(255, 91, 51, 1) 50%);
 
-  --grdLightPurpule: linear-gradient(
-    180deg,
-    rgba(229, 51, 255, 1) 0%,
-    rgba(167, 51, 255, 1) 100%
-  );
+  --grdLightPurpule: linear-gradient(180deg,
+      rgba(229, 51, 255, 1) 0%,
+      rgba(167, 51, 255, 1) 100%);
 
-  --grdLightPink: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(255, 51, 51, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  --grdLightPink: linear-gradient(90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(255, 51, 51, 1) 35%,
+      rgba(0, 212, 255, 1) 100%);
 
-  --grdCity: linear-gradient(
-    180deg,
-    rgba(39, 28, 227, 0) 0%,
-    rgba(96, 164, 253, 1) 100%
-  );
+  --grdCity: linear-gradient(180deg,
+      rgba(39, 28, 227, 0) 0%,
+      rgba(96, 164, 253, 1) 100%);
 
-  --grdSoftRed: linear-gradient(
-    360deg,
-    rgba(39, 28, 227, 0) 0%,
-    rgba(255, 195, 195, 1) 100%
-  );
+  --grdSoftRed: linear-gradient(360deg,
+      rgba(39, 28, 227, 0) 0%,
+      rgba(255, 195, 195, 1) 100%);
 
-  --grdHardBlue: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(45, 123, 225, 1) 0%,
-    rgba(44, 123, 225, 1) 14.000000000000002%,
-    rgba(20, 57, 103, 1) 79%
-  );
+  --grdHardBlue: linear-gradient(180deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(45, 123, 225, 1) 0%,
+      rgba(44, 123, 225, 1) 14.000000000000002%,
+      rgba(20, 57, 103, 1) 79%);
 
-  --ligthShadow: linear-gradient(
-    360deg,
-    rgba(39, 28, 227, 0) 0%,
-    rgba(255, 255, 255, 0.648424) 100%
-  );
+  --ligthShadow: linear-gradient(360deg,
+      rgba(39, 28, 227, 0) 0%,
+      rgba(255, 255, 255, 0.648424) 100%);
 
-  --grdLigthGray: linear-gradient(
-    0deg,
-    rgb(137 137 137 / 0%) 0%,
-    rgb(215 215 215) 208%
-  );
+  --grdLigthGray: linear-gradient(0deg,
+      rgb(137 137 137 / 0%) 0%,
+      rgb(215 215 215) 208%);
 
-  --grdSecondDisabled: linear-gradient(
-    180deg,
-    rgba(39, 28, 227, 0) 0%,
-    rgba(0, 0, 0, 0.7148109243697479) 100%
-  );
+  --grdSecondDisabled: linear-gradient(180deg,
+      rgba(39, 28, 227, 0) 0%,
+      rgba(0, 0, 0, 0.7148109243697479) 100%);
 
-  --grdChoose: linear-gradient(
-    180deg,
-    rgb(110 208 80) 0%,
-    rgba(140, 255, 61, 1) 25%,
-    rgb(190 255 73) 50%
-  );
+  --grdChoose: linear-gradient(180deg,
+      rgb(110 208 80) 0%,
+      rgba(140, 255, 61, 1) 25%,
+      rgb(190 255 73) 50%);
 
-  --grdShadowText: linear-gradient(
-    0deg,
-    rgb(137 137 137 / 21%) 0%,
-    rgb(215 215 215) 208%
-  );
+  --grdShadowText: linear-gradient(0deg,
+      rgb(137 137 137 / 21%) 0%,
+      rgb(215 215 215) 208%);
 
   --grdShadowTop: linear-gradient(to bottom, #0000001c, #0000);
   --grdDie: linear-gradient(to bottom, #00000000, #ff0000c4);
@@ -215,7 +185,7 @@ img {
 
 .checkbox .checkmark {
   display: flow-root;
-  padding: 20px;
+  padding: 25px;
   border-radius: 10px;
   background-color: #9b9b9b;
   transition: var(--Transition);
@@ -270,7 +240,7 @@ img {
 /* endCheckmarkSTyle */
 
 backWard {
-  display: none;
+  display: flow-root;
   width: 100%;
   height: 100%;
   background-color: #0000009e;
@@ -282,33 +252,32 @@ backWard {
 
 backWard parent {
   display: inline-block;
-  background: linear-gradient(
-    180deg,
-    rgb(212 212 212) 0%,
-    rgb(159 159 159) 100%
-  );
-  padding: 10px;
+  background: linear-gradient(180deg,
+      rgb(212 212 212) 0%,
+      rgb(159 159 159) 100%);
+  padding: 0 15px 15px;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  min-width: 350px;
+  min-width: 400px;
   min-height: 170px;
   border-radius: 20px;
 }
 
-backWard parent .close {
-  background: var(--Warning);
-  width: 29px;
-  height: 29px;
-  float: right;
-  margin-top: -22px;
-  margin-right: -17px;
+backWard m-header .closeModal {
+  position: absolute;
+  top: -20px;
+  right: 0;
 }
 
-backWard parent .close::after {
-  -webkit-mask-size: 14px;
-  margin-top: 0;
+backWard m-header .closeModal icon {
+  width: 25px;
+  height: 25px;
+}
+
+backWard m-header .closeModal icon {
+  -webkit-mask-size: 17px;
 }
 
 backWard m-content {
@@ -330,7 +299,7 @@ backWard m-content h1 {
 backward m-content span {
   display: inline-block;
   background: var(--Warning);
-  padding: 7px 10px;
+  padding: 7px 16px;
   border-radius: 10px;
   color: var(--backgroundDefault);
   font-size: 10pt;
@@ -366,6 +335,18 @@ backward m-content span {
   background-color: var(--thirdText);
 }
 
+.btn.warning{
+  background-color: var(--Warning);
+}
+
+ability .box .mafia {
+  background-color: var(--Warning);
+}
+
+ability .box .city {
+  background-color: #338BFF;
+}
+
 .mafia {
   background: var(--grdDie);
 }
@@ -382,7 +363,7 @@ backward m-content span {
   background: var(--grdAccept);
 }
 
-.secondAccept {
+.success {
   background: var(--grdSecondAccept);
 }
 
@@ -398,7 +379,7 @@ backward m-content span {
   background: var(--grdUnselect);
 }
 
-.cardCaracter.disabled {
+.card.disabled {
   filter: grayscale(1);
 }
 
@@ -535,11 +516,11 @@ icon {
 
 /* Card */
 
-.cardCaracter {
+.caracter {
   display: inline-block;
   width: 100%;
   height: calc(100% - 25px);
-  padding: 0 14px 0;
+  padding: 0 8px 0;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -548,16 +529,14 @@ icon {
   box-sizing: border-box;
 }
 
-.cardCaracter::before {
+.caracter::before {
   content: "";
   display: flow-root;
   width: 100%;
   height: 200px;
-  background: linear-gradient(
-    180deg,
-    rgba(15, 155, 161, 0) 0%,
-    rgb(0 0 0 / 13%) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(15, 155, 161, 0) 0%,
+      rgb(0 0 0 / 13%) 100%);
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -565,21 +544,21 @@ icon {
   scale: 0.95;
 }
 
-.imageBox {
+.shield {
   display: flow-root;
   width: 100%;
   position: relative;
   margin: 0 auto;
-  height: calc(100% - 24px);
+  height: 96%;
 }
 
 /* image */
 
-.imageBox::before {
+.shield::before {
   content: "";
   display: flow-root;
   width: 100%;
-  height: 150px;
+  height: 98%;
   -webkit-mask-image: url(../images/shield.png);
   -webkit-mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
@@ -587,18 +566,20 @@ icon {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -53%);
+  transform: translate(-50%, -50%);
+  margin-top: 2%;
 }
 
-.mafiaShield::before {
+.mafia .shield::before {
   background: var(--grdSecondWarning);
 }
 
-.cityShield::before {
+.city .shield::before {
   background: var(--grdHardBlue);
 }
 
-.disabledShiel::before {
+.unknow .shield::before,
+.disabled .shield::before {
   background: #00000069;
 }
 
@@ -616,7 +597,7 @@ icon {
   transform: translate(-50%, -50%);
 }
 
-.imageBox div {
+.shield div {
   display: flow-root;
   width: 100%;
   height: 100%;
@@ -625,19 +606,17 @@ icon {
   margin: 0 auto;
 }
 
-.imageBox div::before {
+.shield div::before {
   content: "";
   display: flow-root;
   width: 100%;
-  height: 125px;
+  height: 98%;
   -webkit-mask-image: url(../images/MafiaGroups/shadowShiled.png);
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: 92% 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(15, 155, 161, 0) 26%,
-    rgba(0, 0, 0, 0.378396) 97%
-  );
+  background: linear-gradient(180deg,
+      rgba(15, 155, 161, 0) 26%,
+      rgba(0, 0, 0, 0.378396) 97%);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -666,23 +645,25 @@ icon {
   display: flow-root;
   width: 100%;
   height: 20px;
-  background: linear-gradient(
-    180deg,
-    rgba(15, 155, 161, 0) 0%,
-    rgba(0, 0, 0, 0.578396) 166%
-  );
+  background: linear-gradient(180deg,
+      rgba(15, 155, 161, 0) 0%,
+      rgba(0, 0, 0, 0.578396) 166%);
   position: absolute;
   bottom: 0;
 }
 
 .title {
-  display: inline-block;
+  display: flow-root;
   font-family: var(--titleFont);
   font-size: 14pt;
-  margin: -5px 0;
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  width: 90%;
+  translate: -50% 0;
 }
 
 /* endImage */
@@ -708,21 +689,7 @@ icon {
   top: -5px;
 }
 
-.caracterName {
-  display: flow-root;
-  width: 100%;
-  text-align: center;
-  background-color: var(--Warning);
-  color: var(--txtDefaultColor);
-  margin-top: -24px;
-  position: relative;
-  z-index: 100;
-}
 
-.caracterName .title {
-  font-size: 12pt;
-  padding: 4px 0px;
-}
 
 .ligthShadow {
   position: relative;
@@ -809,6 +776,10 @@ icon {
   background: var(--grdSelect);
 }
 
+.card.select {
+  background: var(--grdSecondAccept);
+}
+
 .panelEvent {
   display: flow-root;
   margin: 8px 0 0;
@@ -825,11 +796,9 @@ icon {
   margin: 25px auto 0;
   padding: 0px 20px 20px;
   border-radius: 20px;
-  background: linear-gradient(
-    180deg,
-    rgb(212 212 212) 0%,
-    rgb(159 159 159) 100%
-  );
+  background: linear-gradient(180deg,
+      rgb(212 212 212) 0%,
+      rgb(159 159 159) 100%);
   border: 1px solid var(--secondText);
   box-sizing: border-box;
   height: calc(100% - 110px);
@@ -909,14 +878,15 @@ icon {
 }
 
 .chooseCaracter ability .box div span {
-  display: inline-block;
+  display: flex;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   color: var(--backgroundDefault);
-  text-align: center;
   font-size: 13pt;
   font-family: var(--txtFont);
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .chooseCaracter ability .box div span a {
@@ -925,9 +895,6 @@ icon {
 }
 
 .chooseCaracter ability .box div span.nigth {
-  display: flow-root;
-  width: 30px;
-  height: 30px;
   background-image: url(../Icons/Night.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -943,6 +910,10 @@ icon {
   line-height: 22pt;
 }
 
+.box name span {
+  font-family: var(--titleFont);
+}
+
 .box name .warning {
   font-size: 27pt;
 }
@@ -950,8 +921,8 @@ icon {
 .smallCaracter,
 .mainCaracter {
   display: flow-root;
-  position: relative;
-  padding-top: 12px;
+  padding: 12px 0 0 0;
+  margin-left: 20px;
 }
 
 .mainCaracter {
@@ -980,6 +951,10 @@ interduce .smallCaracter .parent {
   margin-left: 10px;
 }
 
+.smallCaracter .parent:first-child, .mainCaracter .card:first-child {
+  margin-left: 20px;
+}
+
 interduce .smallCaracter .parent span.ligthShadow {
   display: flow-root;
   padding: 0 0px;
@@ -1003,8 +978,13 @@ interduce .mainCaracter.ligthShadow::after {
   border-radius: 12px;
 }
 
-interduce .mainCaracter .cardCaracter {
-  margin-left: 10px;
+interduce .smallCaracter .miniTitle {
+  display: flow-root;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  color: var(--backgroundDefault);
+  background-color: var(--Warning);
 }
 
 .left {
@@ -1062,11 +1042,9 @@ interduce .mainCaracter .cardCaracter {
 }
 
 .inputBox.ligthShadow::after {
-  background: linear-gradient(
-    180deg,
-    rgb(216 216 216 / 42%) 0%,
-    rgb(229 229 229 / 0%) 100%
-  );
+  background: linear-gradient(180deg,
+      rgb(216 216 216 / 42%) 0%,
+      rgb(229 229 229 / 0%) 100%);
 }
 
 .playerCondition .btn {
@@ -1131,11 +1109,9 @@ interduce .mainCaracter .cardCaracter {
 }
 
 .headTitleConductor .txtBox.ligthShadow::after {
-  background: linear-gradient(
-    0deg,
-    rgb(137 137 137 / 12%) 0%,
-    rgb(215 215 215 / 0%) 208%
-  );
+  background: linear-gradient(0deg,
+      rgb(137 137 137 / 12%) 0%,
+      rgb(215 215 215 / 0%) 208%);
   height: 90px;
   width: calc(100% - 72px);
   top: 8px;
@@ -1176,6 +1152,7 @@ interduce .mainCaracter .cardCaracter {
   border-radius: 10px;
   overflow: hidden;
   position: relative;
+  border: 1px solid var(--border);
 }
 
 /* nigthCaracyer */
@@ -1185,17 +1162,18 @@ interduce .mainCaracter .cardCaracter {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 15px;
   margin: 20px auto 0;
+  height: calc(100% - 90px);
 }
 
-.unknow{
+.unknow {
   filter: grayscale(1);
 }
 
-.unknow img{
+.unknow img {
   width: 50%;
 }
 
-.cardtitle {
+.cardTitle {
   display: flow-root;
   text-align: center;
   font-family: var(--txtFont);
@@ -1211,16 +1189,11 @@ interduce .mainCaracter .cardCaracter {
   display: none;
 }
 
-.card .cardCaracter {
+.card .caracter {
   margin-top: unset;
 }
 
-.parentBtns {
-  display: flow-root;
-  margin-top: 20px;
-}
-
-.parentBtns .conductor .aboutPlay {
+.conductor .aboutPlay {
   display: flow-root;
   width: 100%;
   background-image: url(../Icons/interduc.png);
@@ -1232,7 +1205,7 @@ interduce .mainCaracter .cardCaracter {
   margin: -200px 80px 0 0;
 }
 
-.parentBtns .conductor .aboutPlay parent {
+.conductor .aboutPlay parent {
   display: flow-root;
   width: calc(100% - 50px);
   transform: rotate(4deg);
@@ -1243,27 +1216,25 @@ interduce .mainCaracter .cardCaracter {
   margin: 16px 20px 0 0;
 }
 
-.parentBtns .conductor .aboutPlay .txtTitle {
+.conductor .aboutPlay .txtTitle {
   display: flow-root;
   text-align: right;
 }
 
-.parentBtns .conductor .aboutPlay p {
+.conductor .aboutPlay p {
   display: flow-root;
   color: var(--secondText);
   text-align: right;
 }
 
-.parentBtns .conductor .ligthShadow::after {
-  background: linear-gradient(
-    0deg,
-    rgb(137 137 137 / 12%) 0%,
-    rgb(215 215 215 / 0%) 208%
-  );
+.conductor .ligthShadow::after {
+  background: linear-gradient(0deg,
+      rgb(137 137 137 / 12%) 0%,
+      rgb(215 215 215 / 0%) 208%);
   height: 140px;
 }
 
-.parentBtns .arrowBtn .man {
+.arrowBtn .man {
   display: flow-root;
   width: 210px;
   background-image: url(../images/conductor.png);
@@ -1286,6 +1257,8 @@ interduce .mainCaracter .cardCaracter {
 }
 
 .backWardTitle {
+  display: flow-root;
+  font-family: var(--titleFont);
   text-align: center;
 }
 
@@ -1298,10 +1271,11 @@ interduce .mainCaracter .cardCaracter {
   text-align: center;
 }
 
+/* 
 .unknowParent btn {
   display: inline-block;
   vertical-align: top;
-}
+} */
 
 /* ChooseCaracter */
 
@@ -1315,10 +1289,6 @@ interduce .mainCaracter .cardCaracter {
   width: 100%;
 }
 
-.choosesCaracter .unknow .cardCaracter {
-  border: unset;
-}
-
 .choosesCaracter .person {
   display: inline-block;
   vertical-align: top;
@@ -1327,7 +1297,7 @@ interduce .mainCaracter .cardCaracter {
   overflow: auto;
 }
 
-.choosesCaracter .group {
+.choosesCaracter .cards {
   display: inline-grid;
   width: calc(80% - 50px);
   grid-template-columns: repeat(4, 1fr);
