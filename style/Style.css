@@ -1320,30 +1320,32 @@ interduce .smallCaracter .miniTitle {
 }
 
 .btnElection {
-  display: flex;
-  justify-content: center;
+  display: flow-root;
+  text-align: center;
   width: 100%;
 }
 
 .btnElection a.btn {
+  display: inline-block;
+  float: unset;
   font-size: 13pt;
 }
 
-.Timer {
+.timer {
   display: flow-root;
   text-align: center;
   margin-top: 15px;
   position: relative;
 }
 
-.Timer a.Time {
+.timer a.Time {
   margin: 0 auto;
   float: unset;
   padding: 20px;
   width: max-content;
 }
 
-.Timer a.Time .counter {
+.timer a.Time .counter {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -1353,13 +1355,13 @@ interduce .smallCaracter .miniTitle {
   font-family: var(--txtFont);
 }
 
-.Timer a.btn icon {
+.timer a.btn icon {
   width: 55px;
   height: 55px;
   -webkit-mask-size: 53px;
 }
 
-.Timer a.playAgain {
+.timer a.stop {
   background: linear-gradient(
     360deg,
     rgba(255, 150, 51, 1) 0%,
@@ -1373,11 +1375,11 @@ interduce .smallCaracter .miniTitle {
   padding-top: 6px;
 }
 
-.Timer .Time.playGame {
+.timer .Time.play {
   background: var(--grdSelect);
 }
 
-.Timer .Time.pauseGame {
+.timer .Time.pauseGame {
   background: linear-gradient(
     360deg,
     rgba(255, 51, 180, 1) 0%,
@@ -1385,7 +1387,7 @@ interduce .smallCaracter .miniTitle {
   );
 }
 
-.Timer .Time.pauseGame .counter{
+.timer .Time.pauseGame .counter{
   color: var(--txtDefaultColor);
 }
 
