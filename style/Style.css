@@ -307,6 +307,11 @@ backWard m-header .closeModal icon {
   -webkit-mask-size: 17px;
 }
 
+backWard m-content > div{
+  display: none!important;
+}
+
+
 backWard m-content {
   display: flow-root;
   background-color: var(--backgroundDefault);
@@ -323,16 +328,9 @@ backWard m-content .question {
   text-align: center;
 }
 
-/* backward m-content span {
-  display: inline-block;
-  background: var(--Warning);
-  padding: 7px 16px;
-  border-radius: 10px;
-  color: var(--backgroundDefault);
-  font-size: 10pt;
-  cursor: pointer;
-  margin-left: 10px;
-} */
+backWard m-content div.active{
+  display: flow-root!important;
+}
 
 /* color */
 
@@ -1319,13 +1317,13 @@ interduce .smallCaracter .miniTitle {
   margin-bottom: 7px;
 }
 
-.btnElection {
+.election {
   display: flow-root;
   text-align: center;
   width: 100%;
 }
 
-.btnElection a.btn {
+.election a.btn {
   display: inline-block;
   float: unset;
   font-size: 13pt;
