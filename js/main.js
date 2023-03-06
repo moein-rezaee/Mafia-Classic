@@ -22,10 +22,10 @@ $(() => {
     clicks.forEach(i => on.click(i.selector, i.func));
 
     let list = storage.run(PLAYERS);
-    if(list && list.length > 0) {
+    if (list && list.length > 0) {
         Player.List = list.fromJson();
         Player.List.forEach(i => dom.addPlayer(i));
-    } 
+    }
 
 });
 
@@ -44,6 +44,14 @@ class Player {
         storage.run(PLAYERS, this.List.toJson());
         $('players').html("")
         this.List.forEach(i => dom.addPlayer(i));
+    }
+
+    static Delete(player) {
+        // let res = storage.run(PLAYERS)
+        // if (res && res.length > 0) {
+        //     this.List =
+        // }
+        
     }
 }
 
@@ -71,7 +79,10 @@ const clicks = [
     },
     {
         selector: '.removePlayer',
-        func: e => dom.removePlayer(e)
+        func(e) {
+            dom.removePlayer(e);
+            Player.delete(e)
+        }
     }
 ];
 
