@@ -15,8 +15,18 @@ const IN_GAME = {
     DEACTIVE: false
 }
 
+const PLAYERS = "players";
+const CHARACTERS = "characters";
+
 $(() => {
     clicks.forEach(i => on.click(i.selector, i.func));
+
+    let list = storage.run(PLAYERS);
+    if(list && list.length > 0) {
+        Player.List = list.fromJson();
+        Player.List.forEach(i => dom.addPlayer(i));
+    } 
+
 });
 
 class Player {
@@ -31,6 +41,9 @@ class Player {
 
     static Add(player) {
         this.List.push(player);
+        storage.run(PLAYERS, this.List.toJson());
+        $('players').html("")
+        this.List.forEach(i => dom.addPlayer(i));
     }
 }
 
@@ -47,21 +60,27 @@ class Character {
 
 var characters = [];
 
-var clicks = [
+const clicks = [
     {
         selector: '.addPlayer .btn',
-        func: () => {
-            let p = new Player(1, $('.txtName').val());
+        func() {
+            let p = new Player();
+            p.name = $('.txtName').val();
             Player.Add(p);
-            dom.addPlayer(p);
         }
     },
+    {
+        selector: '.removePlayer',
+        func: e => dom.removePlayer(e)
+    }
 ];
+
+
 
 var dom = {
     addPlayer: player => {
         let res = `<div class="playerCondition">
-                    <a href="#" class="ligthShadow btn ico danger left">
+                    <a href="#" class="ligthShadow btn ico danger removePlayer">
                         <icon class="disAgree"></icon>
                     </a>
                     <div class="inputBox ligthShadow left">
@@ -72,8 +91,10 @@ var dom = {
                         <span class="checkmark"></span>
                     </label>
                 </div>`;
+        $('.txtName').val("");
         $('players').append(res);
-    }
+    },
+    removePlayer: e => e.parent('.playerCondition').remove()
 }
 
 var on = {
@@ -81,6 +102,16 @@ var on = {
         e.preventDefault();
         if (func) func($(this));
     })
+}
+
+
+const storage = {
+    run(key, value) {
+        if (value != null)
+            localStorage.setItem(key, value);
+        return localStorage.getItem(key);
+    },
+    remove: key => localStorage.removeItem(key)
 }
 
 function defineMethod(name, func) {
