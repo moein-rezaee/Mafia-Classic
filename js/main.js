@@ -26,18 +26,19 @@ $(() => {
         Player.List = list.fromJson();
         Player.List.forEach(i => dom.addPlayer(i));
     }
-
 });
 
 class Player {
-    constructor(id, name, inGame, state, characterId) {
-        this.id = id || 0;
-        this.characterId = characterId || 0;
-        this.name = name || "";
-        this.inGame = inGame || IN_GAME.ACTIVE;
-        this.state = state || STATE.LIVE;
+    constructor(name) {
+        this.id = getId();
+        this.characterId = 0;
+        this.name = name;
+        this.inGame = IN_GAME.ACTIVE;
+        this.state = STATE.LIVE;
     }
     static List = [];
+
+    static Get(id) { return this.List.find(i => i.id == id) };
 
     static Add(player) {
         this.List.push(player);
@@ -46,12 +47,16 @@ class Player {
         this.List.forEach(i => dom.addPlayer(i));
     }
 
-    static Delete(player) {
-        // let res = storage.run(PLAYERS)
-        // if (res && res.length > 0) {
-        //     this.List =
-        // }
-        
+    static Delete(id) {
+        let found = this.Get(id);
+        if (found) {
+            this.List.remove(found);
+            storage.run(PLAYERS, this.List.toJson())
+        }
+    }
+
+    static Edit() {
+        storage.run(PLAYERS, this.List.toJson())
     }
 }
 
@@ -73,32 +78,50 @@ const clicks = [
         selector: '.addPlayer .btn',
         func() {
             let p = new Player();
-            p.name = $('.txtName').val();
-            Player.Add(p);
+            let name = $('.txtName').val();
+            if (name.length >= 2) {
+                p.name = name;
+                Player.Add(p);
+            } else {
+                // showMessage("خطا", "لطفا نام کاربر را وارد نمایید.", "error");
+                // return false;
+            }
         }
     },
     {
         selector: '.removePlayer',
         func(e) {
+            let id = e.closest(".playerCondition").attr("id");
+            Player.Delete(id);
             dom.removePlayer(e);
-            Player.delete(e)
+        }
+    },
+    {
+        selector: '.playerCondition .checkbox input',
+        func(e) {
+            let id = e.closest(".playerCondition").attr("id");
+            let inGame = e.is(':checked');
+            let found = Player.Get(id);
+            found.inGame = inGame;
+            Player.Edit(found);
         }
     }
 ];
 
 
 
+
 var dom = {
     addPlayer: player => {
-        let res = `<div class="playerCondition">
+        let res = `<div id="${player.id}" class="playerCondition">
                     <a href="#" class="ligthShadow btn ico danger removePlayer">
                         <icon class="disAgree"></icon>
                     </a>
                     <div class="inputBox ligthShadow left">
                         <input type="text" placeholder="نام بازکن" value="${player.name}" disabled>
                     </div>
-                    <label class="checkbox ligthShadow rigth">
-                        <input type="checkbox" class="hide" checked="checked">
+                    <label for="chk#${player.id}" class="checkbox ligthShadow rigth">
+                        <input id="chk#${player.id}" type="checkbox" class="hide" ${player.inGame ? "checked" : "" }>
                         <span class="checkmark"></span>
                     </label>
                 </div>`;
@@ -108,9 +131,19 @@ var dom = {
     removePlayer: e => e.parent('.playerCondition').remove()
 }
 
+const message = {
+    show(title, text, bg) {
+        let alert = `
+            <div msg=${bg} class='alertBox'>
+                <title>${title}</title>
+                <p class='txtBox'>${text}</p>
+            </div>`;
+        $("body").prepend(alert);
+    }
+}
+
 var on = {
     click: (selector, func) => $("body").delegate(selector, "click", function (e) {
-        e.preventDefault();
         if (func) func($(this));
     })
 }
@@ -123,6 +156,13 @@ const storage = {
         return localStorage.getItem(key);
     },
     remove: key => localStorage.removeItem(key)
+}
+function getId() {
+
+    var S4 = function () {
+        return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+    };
+    return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
 }
 
 function defineMethod(name, func) {
@@ -139,4 +179,13 @@ defineMethod("toJson", function () {
 
 defineMethod("fromJson", function () {
     return JSON.parse(this);
+})
+
+defineMethod("remove", function (i) {
+    const index = this.indexOf(i);
+    if (index > -1) {
+        this.splice(index, 1);
+    }
 });
+
+

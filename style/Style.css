@@ -265,6 +265,15 @@ img {
 
 /* endCheckmarkSTyle */
 
+/* showMessage */
+
+.alertBox{
+  display: flow-root;
+  width: 100%;
+  background-color: red;
+}
+
+/* endShowMessage */
 backWard {
   display: flow-root;
   width: 100%;
