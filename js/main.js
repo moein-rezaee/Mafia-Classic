@@ -235,6 +235,8 @@ defineMethod("remove", function (i) {
   }
 });
 
+
+
 const nextPage = (btn) => {
   let page = btn.closest("page");
   let pnlBtn = btn.parent().addClass("hide");
