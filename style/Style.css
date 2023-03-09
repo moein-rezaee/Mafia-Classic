@@ -189,7 +189,7 @@ img {
   vertical-align: top;
   border: 1px solid var(--border);
   text-align: right;
-  padding: 8px 12px ;
+  padding: 8px 12px;
   border-radius: 8px;
   position: relative;
   box-sizing: border-box;
@@ -267,15 +267,57 @@ img {
 
 /* showMessage */
 
-.alertBox{
+.alertBox {
   display: flow-root;
-  width: 100%;
-  background-color: red;
+  width: max-content;
+  height: max-content;
+  background-color: #a6a1a1;
+  border: 1px solid var(--border);
+  color: var(--backgroundDefault);
+  font-family: var(--txtFont);
+  position: absolute;
+  top: 50%;
+  z-index: 500;
+  right: 50%;
+  transform: translate(50%, -50%);
+  border-radius: 9px;
+  animation: sway 4s infinite;
+}
+
+.alertBox title {
+  display: flow-root;
+  text-align: center;
+  border-bottom: 1px solid;
+  margin: 12px 0;
+}
+
+.alertBox p {
+  display: flow-root;
+  margin: 21px;
+}
+
+.alertBox .closeBtn {
+  display: flow-root;
+  position: absolute;
+  right: 0;
+  top: -6px;
+}
+
+.alertBox .closeBtn icon {
+  -webkit-mask-size: 15px;
+}
+
+.alertBox[msg="error"] {
+  background-color: #d64141;
+}
+
+.alertBox[msg="success"]{
+  background: var(--grdSelect);
 }
 
 /* endShowMessage */
-backWard {
-  display: flow-root;
+backWard , .modal {
+  display: none;
   width: 100%;
   height: 100%;
   background-color: #0000009e;
@@ -317,10 +359,9 @@ backWard m-header .closeModal icon {
   -webkit-mask-size: 17px;
 }
 
-backWard m-content > div{
-  display: none!important;
+backWard m-content > div {
+  display: none !important;
 }
-
 
 backWard m-content {
   display: flow-root;
@@ -338,8 +379,13 @@ backWard m-content .question {
   text-align: center;
 }
 
-backWard m-content div.active{
-  display: flow-root!important;
+backWard m-content div.active {
+  display: flow-root !important;
+}
+
+backWard.active {
+  display: flow-root;
+  transition: var(--Transition);
 }
 
 /* color */
@@ -551,6 +597,14 @@ icon {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+}
+
+page{
+  display: none;
+}
+
+page[active="true"]{
+  display: flow-root;
 }
 
 /* Card */
@@ -1112,7 +1166,7 @@ interduce .smallCaracter .miniTitle {
   border: 1px solid var(--border);
   border-radius: 8px;
   justify-content: space-between;
-  padding: 10px ;
+  padding: 10px;
   gap: 5px;
   margin-bottom: 12px;
 }
@@ -1306,6 +1360,10 @@ interduce .smallCaracter .miniTitle {
   margin: -200px 0 0 28px;
 }
 
+.arrowBtn a.btn{
+  z-index: 100;
+}
+
 .backWardTitle.ligthShadow::after {
   scale: 1;
   z-index: -1;
@@ -1395,11 +1453,11 @@ interduce .smallCaracter .miniTitle {
   );
 }
 
-.timer .Time.pauseGame .counter{
+.timer .Time.pauseGame .counter {
   color: var(--txtDefaultColor);
 }
 
-.kick .titleKick{
+.kick .titleKick {
   display: flow-root;
   text-align: center;
   font-size: 19pt;
@@ -1407,24 +1465,23 @@ interduce .smallCaracter .miniTitle {
   margin-top: 10px;
 }
 
-
-:is(.kick) :is(h2,h3,p){
+:is(.kick) :is(h2, h3, p) {
   text-align: center;
   color: var(--secondText);
 }
 
-.kick h3{
+.kick h3 {
   font-size: 9pt;
 }
 
-.kick div{
+.kick div {
   display: flow-root;
   width: calc(100% - 100px);
   margin: 10px auto 30px;
   line-height: 1.7;
 }
 
-.kick div h2{
+.kick div h2 {
   font-size: 14pt;
 }
 
@@ -1523,3 +1580,19 @@ interduce .smallCaracter .miniTitle {
 .nightBtns div {
   margin-left: 5px;
 }
+
+/* animation */
+
+@keyframes sway {
+  0% {
+    transform:translate(50%, -50%) rotate(8deg);
+  }
+  50% {
+    transform:translate(50%, -50%) rotate(-8deg);
+  }
+  100% {
+    transform:translate(50%, -50%) rotate(8deg);
+  }
+}
+
+/* endAnimation */
