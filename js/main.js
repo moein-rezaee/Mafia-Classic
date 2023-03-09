@@ -134,6 +134,12 @@ const clicks = [
       prevPage(e);
     },
   },
+  {
+    selector: ".btn.cancle",
+    func(e) {
+      cancel(e);
+    },
+  },
 ];
 
 var dom = {
@@ -235,29 +241,39 @@ defineMethod("remove", function (i) {
   }
 });
 
-
-
 const nextPage = (btn) => {
   let page = btn.closest("page");
   let pnlBtn = btn.parent().addClass("hide");
   let next = page.next().attr("active", true);
   let prev = page.removeAttr("active");
+  let btns = page.next().find(".panelEvent, .parentBtns").removeClass("hide");
 };
 
 const prevPage = (btn) => {
   let page = btn.closest("page");
-  if (btn.hasClass("cancle")) {
-    message.show("هشدار", "آیا می خواهید از بازی خارج شوید؟", "pending");
-    $(".modal").addClass("active");
-    return false;
-  } else {
-    let pnlBtn = btn
-      .closest("page")
-      .prev()
-      .find(".panelEvent")
+  // if (btn.hasClass("cancle")) {
+  //   message.show("هشدار", "آیا می خواهید از بازی خارج شوید؟", "pending");
+  //   $(".modal").addClass("active");
+  //   return false;
+  // }
+
+  let pnlBtn = btn
+    .closest("page")
+    .prev()
+    .find(".panelEvent")
+    .removeClass("hide");
+  let item = page.removeAttr("active");
+  let prev = page.prev().attr("active", true);
+  let next = page.next().removeAttr("active");
+};
+
+const cancel = (btn) => {
+  let page = btn.closest("page");
+  let welcomePage =
+    btn.closest(".pagesParent").find(".welcome").attr("active", "true") &&
+    btn
+      .closest(".pagesParent")
+      .find(".welcome .welcomePage ")
       .removeClass("hide");
-    let item = page.removeAttr("active");
-    let prev = page.prev().attr("active", true);
-    let next = page.next().removeAttr("active");
-  }
+  let here = btn.closest("page").removeAttr("active");
 };
