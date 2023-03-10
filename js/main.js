@@ -15,6 +15,9 @@ const IN_GAME = {
   DEACTIVE: false,
 };
 
+let mafiaName = ["گادفادر", "مافیا", "جوکر", "دکتر لکتر"];
+let cityName = ["شهروند", "دکتر", "کارآگاه", "جان سخت", "شهردار", "حرفه ای"];
+
 const PLAYERS = "players";
 const CHARACTERS = "characters";
 
@@ -30,11 +33,12 @@ $(() => {
 
 class Player {
   constructor(name) {
-    this.id = getId();
+    this.id = randomNumber();
     this.characterId = 0;
     this.name = name;
     this.inGame = IN_GAME.ACTIVE;
     this.state = STATE.LIVE;
+    this.side = SIDE.MAFIA;
   }
   static List = [];
 
@@ -46,7 +50,7 @@ class Player {
     this.List.push(player);
     storage.run(PLAYERS, this.List.toJson());
     $("players").html("");
-    this.List.forEach((i) => dom.addPlayer(i));
+    this.List.forEach((i) => dom.addPlayer(i)); // for show playerName
   }
 
   static Delete(id) {
@@ -64,17 +68,23 @@ class Player {
 
 class Character {
   constructor(id, name, description, counterAbility, nickname, side) {
-    this.id = id || 0;
+    this.id = id || randomNumber();
     this.name = name || "";
     this.description = description || "";
     this.counterAbility = counterAbility || 0;
-    this.nickname = nickname || "";
-    this.side = side || null;
+    this.nickname = nickname || randomName();
+    this.side = side || SIDE.MAFIA || SIDE.CITY;
   }
 }
 
-var characters = [];
+const character = new Character(); // object
 
+var characters = [
+  (id = character.id),
+  (fName = character.name),
+  (side = SIDE.MAFIA),
+  (nickname = character.nickname),
+];
 const clicks = [
   {
     selector: ".addPlayer .btn",
@@ -90,7 +100,10 @@ const clicks = [
           ".نام کاربر وارد شده کمتر از حد مجاز می باشد",
           "error"
         );
-        $("backWard").addClass("active");
+        let box = $(".alertBox").addClass("active");
+        setTimeout(function () {
+          box.removeClass("active");
+        }, 3000);
         return false;
       }
     },
@@ -126,6 +139,7 @@ const clicks = [
     selector: ".next",
     func(e) {
       nextPage(e);
+      // checkCondition();
     },
   },
   {
@@ -139,6 +153,21 @@ const clicks = [
     func(e) {
       cancel(e);
     },
+  },
+  {
+    selector: ".players .next",
+    // تابع تک خطی اینطوری باشد
+    func(e) {
+      dom.smallCard();
+      dom.card();
+      checkCondition();
+      randomName();
+    },
+  },
+  {
+    selector: ".card",
+    // تابع تک خطی اینطوری باشد
+    func: (e) => $(e).toggleClass("selected"),
   },
 ];
 
@@ -168,6 +197,46 @@ var dom = {
     $("players").append(res);
   },
   removePlayer: (e) => e.parent(".playerCondition").remove(),
+
+  smallCard: () => {
+    let res = "";
+    Player.List.forEach((i) => {
+      res += `
+      <div id="sc#${i.id}" class="parent">
+      <span class="ligthShadow">${i.name}</span>
+      <div class="smallCard pending">
+        <div class="ImageParent ligthShadow">
+          <img src="./Icons/Question.png" alt="">
+        </div>
+        <div class="caracterName hide">
+          <span class="miniTitle">دکترلکتر</span>
+        </div>
+      </div>
+    </div>`;
+      $(".smallCaracter").html(res);
+    });
+  },
+
+  card: () => {
+    let res = "";
+    Player.List.forEach((i) => {
+      res += `
+    <div id="${i.id}"  class="card ${character.side}" inGame=${i.inGame}>
+    <span class="cardTitle ligthShadow" name=${i.name}>${i.name}</span>
+      <div class="caracter">
+        <div class="shield">
+          <div class="selectedCaracter">
+            <img src="./images/${character.side}/${i.id}.png" alt="${character.side}">
+          </div>
+        </div>
+        <div class="nameBox title">
+            ${character.nickname}
+        </div>
+      </div>
+    </div>`;
+      $(".mainCaracter").html(res);
+    });
+  },
 };
 
 const message = {
@@ -244,9 +313,12 @@ defineMethod("remove", function (i) {
 const nextPage = (btn) => {
   let page = btn.closest("page");
   let pnlBtn = btn.parent().addClass("hide");
-  let next = page.next().attr("active", true);
+  let next = page.next("page").attr("active", true);
   let prev = page.removeAttr("active");
-  let btns = page.next().find(".panelEvent, .parentBtns").removeClass("hide");
+  let btns = page
+    .next()
+    .find(".panelEvent, .parentBtns ,.pnlBtns")
+    .removeClass("hide");
 };
 
 const prevPage = (btn) => {
@@ -277,3 +349,26 @@ const cancel = (btn) => {
       .removeClass("hide");
   let here = btn.closest("page").removeAttr("active");
 };
+
+function randomNumber(maxLimit = 7) {
+  let rand = Math.random() * maxLimit;
+  rand = Math.floor(rand);
+  return rand;
+}
+
+const checkCondition = () => {
+  let state = false;
+  Player.List.forEach((i) => {
+    if ($(`.card[inGame=${state}]`).length > 0) {
+      $(`.card[inGame=${state}]`).addClass("hide");
+    }
+  });
+};
+
+function randomName(name) {
+  Player.List.forEach((i) => {
+    if (i.inGame == true)
+      mafiaName[Math.floor(Math.random() * mafiaName.length)];
+    return name;
+  });
+}
