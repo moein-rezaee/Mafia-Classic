@@ -273,8 +273,8 @@ img {
   padding: 16px; /* Padding */
   position: fixed; /* Sit on top of the screen */
   z-index: 1; /* Add a z-index if needed */
-  right: 0; /* Center the snackbar */
-  bottom: -50%; /* 30px from the bottom */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
 }
 
 /* Show the snackbar when clicking on a button (class added with JavaScript) */
@@ -288,23 +288,23 @@ img {
 
 /* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
-  from {bottom: -50%; opacity: 0;}
+  from {bottom: 0; opacity: 0;}
   to {bottom: 30px; opacity: 1;}
 }
 
 @keyframes fadein {
-  from {bottom: -50%; opacity: 0;}
+  from {bottom: 0; opacity: 0;}
   to {bottom: 30px; opacity: 1;}
 }
 
 @-webkit-keyframes fadeout {
   from {bottom: 30px; opacity: 1;}
-  to {bottom: -50%; opacity: 0;}
+  to {bottom: 0; opacity: 0;}
 }
 
 @keyframes fadeout {
   from {bottom: 30px; opacity: 1;}
-  to {bottom: -50%; opacity: 0;}
+  to {bottom: 0; opacity: 0;}
 }
 
 .alertBox title {
@@ -636,7 +636,7 @@ page[active="true"] {
 .caracter {
   display: inline-block;
   width: 100%;
-  height: calc(100% - 25px);
+  height: 100%;
   padding: 0 8px 0;
   border-radius: 10px;
   overflow: hidden;

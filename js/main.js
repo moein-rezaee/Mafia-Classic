@@ -222,7 +222,6 @@ var dom = {
     Player.List.forEach((i) => {
       res += `
     <div id="${i.id}"  class="card ${character.side}" inGame=${i.inGame}>
-    <span class="cardTitle ligthShadow" name=${i.name}>${i.name}</span>
       <div class="caracter">
         <div class="shield">
           <div class="selectedCaracter">
