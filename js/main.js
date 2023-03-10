@@ -10,6 +10,8 @@ const STATE = {
   KICK: "kick",
 };
 
+const INFINITE = 0;
+
 const IN_GAME = {
   ACTIVE: true,
   DEACTIVE: false,
@@ -33,7 +35,7 @@ $(() => {
 
 class Player {
   constructor(name) {
-    this.id = randomNumber();
+    this.id = getId();
     this.characterId = 0;
     this.name = name;
     this.inGame = IN_GAME.ACTIVE;
@@ -68,23 +70,28 @@ class Player {
 
 class Character {
   constructor(id, name, description, counterAbility, nickname, side) {
-    this.id = id || randomNumber();
+    this.id = id || 0;
     this.name = name || "";
     this.description = description || "";
-    this.counterAbility = counterAbility || 0;
-    this.nickname = nickname || randomName();
-    this.side = side || SIDE.MAFIA || SIDE.CITY;
+    this.counterAbility = counterAbility || INFINITE;
+    this.nickname = nickname || "";
+    this.side = side || SIDE.CITY;
   }
 }
 
-const character = new Character(); // object
+const DOCTER_LECTER = new Character(
+  0,
+  "دکتر لکتر",
+  "هرشب یک نفر را انتخاب می کند و اگر مورد حمله قرارگیرد، آن نفر نجات پیدا می کند. فقط یک شب می تواند خودش را انتخاب کند.",
+  INFINITE,
+  "جراح",
+  SIDE.MAFIA
+);
 
 var characters = [
-  (id = character.id),
-  (fName = character.name),
-  (side = SIDE.MAFIA),
-  (nickname = character.nickname),
+  DOCTER_LECTER,
 ];
+
 const clicks = [
   {
     selector: ".addPlayer .btn",
@@ -158,10 +165,9 @@ const clicks = [
     selector: ".players .next",
     // تابع تک خطی اینطوری باشد
     func(e) {
+      debugger;
       dom.smallCard();
       dom.card();
-      checkCondition();
-      randomName();
     },
   },
   {
@@ -200,7 +206,7 @@ var dom = {
 
   smallCard: () => {
     let res = "";
-    Player.List.forEach((i) => {
+    Player.List.filter((i) => i.inGame == IN_GAME.ACTIVE).forEach((i) => {
       res += `
       <div id="sc#${i.id}" class="parent">
       <span class="ligthShadow">${i.name}</span>
@@ -216,23 +222,23 @@ var dom = {
       $(".smallCaracter").html(res);
     });
   },
-
   card: () => {
     let res = "";
-    Player.List.forEach((i) => {
+    characters.forEach((i) => {
       res += `
-    <div id="${i.id}"  class="card ${character.side}" inGame=${i.inGame}>
+    <div id="${i.id}"  class="card ${i.side}">
       <div class="caracter">
         <div class="shield">
           <div class="selectedCaracter">
-            <img src="./images/${character.side}/${i.id}.png" alt="${character.side}">
+            <img src="./images/${i.side}/${i.id}.png" alt="${i.name}">
           </div>
         </div>
         <div class="nameBox title">
-            ${character.nickname}
+            ${i.name}
         </div>
       </div>
     </div>`;
+      //اصلاح شود
       $(".mainCaracter").html(res);
     });
   },
@@ -348,26 +354,3 @@ const cancel = (btn) => {
       .removeClass("hide");
   let here = btn.closest("page").removeAttr("active");
 };
-
-function randomNumber(maxLimit = 7) {
-  let rand = Math.random() * maxLimit;
-  rand = Math.floor(rand);
-  return rand;
-}
-
-const checkCondition = () => {
-  let state = false;
-  Player.List.forEach((i) => {
-    if ($(`.card[inGame=${state}]`).length > 0) {
-      $(`.card[inGame=${state}]`).addClass("hide");
-    }
-  });
-};
-
-function randomName(name) {
-  Player.List.forEach((i) => {
-    if (i.inGame == true)
-      mafiaName[Math.floor(Math.random() * mafiaName.length)];
-    return name;
-  });
-}
