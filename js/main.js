@@ -17,9 +17,6 @@ const IN_GAME = {
   DEACTIVE: false,
 };
 
-let mafiaName = ["گادفادر", "مافیا", "جوکر", "دکتر لکتر"];
-let cityName = ["شهروند", "دکتر", "کارآگاه", "جان سخت", "شهردار", "حرفه ای"];
-
 const PLAYERS = "players";
 const CHARACTERS = "characters";
 
@@ -301,7 +298,7 @@ var dom = {
       <span class="ligthShadow">${i.name}</span>
       <div class="smallCard pending">
         <div class="ImageParent ligthShadow">
-          <img src="" alt="" >
+          <img src="" alt="" onerror='this.src=./images/Question.ong'>
         </div>
         <div class="caracterName">
           <span class="miniTitle">دکترلکتر</span>
@@ -474,6 +471,8 @@ const cancel = (btn) => {
 };
 
 const selectCard = (e) => {
+  let id = e.attr("id");
+  let character =  characters.find(i => i.id == id);
   if (
     $(".parent").hasClass("selected") &&
     e
@@ -482,13 +481,13 @@ const selectCard = (e) => {
       .removeClass("selected")
   ) {
     e.toggleClass("selected");
-    $(".rules .parent.selected").attr("chID", e.attr("id"));
+    $(".rules .parent.selected").attr("chID", id);
     $(".rules .parent.selected img").attr(
       "src",
-      `./images/${e.side}/${e.attr("id")}.png`
+      `./images/${character.side}/${id}.png`
     );
     $("ability").addClass(e.SIDE);
-    dom.ability(e.attr("id"));
+    dom.ability(id);
   }
 };
 
