@@ -10,7 +10,7 @@ const STATE = {
   KICK: "kick",
 };
 
-const INFINITE = 0;
+const INFINITE = "∞";
 
 const IN_GAME = {
   ACTIVE: true,
@@ -79,8 +79,9 @@ class Character {
   }
 }
 
+// createCaracter
 const DOCTER_LECTER = new Character(
-  0,
+  5,
   "دکتر لکتر",
   "هرشب یک نفر را انتخاب می کند و اگر مورد حمله قرارگیرد، آن نفر نجات پیدا می کند. فقط یک شب می تواند خودش را انتخاب کند.",
   INFINITE,
@@ -88,9 +89,93 @@ const DOCTER_LECTER = new Character(
   SIDE.MAFIA
 );
 
+const DIE_HARD = new Character(
+  2,
+  "جان سخت",
+  "دو شب در طول بازی به گرداننده اعلام مکیند که کارت های خارج شده از بازی را برای فردا رو کند یکبار در طول بازی از حمله شبانه درامان است.",
+  2,
+  "گورکن",
+  SIDE.CITY
+);
+
+const DETECTIVE = new Character(
+  1,
+  "کارآگاه",
+  "هرشب یک نفر را انتخاب میکند و گرداننده به او اعلام میکند که آیا او مافیا هست یا نه!",
+  INFINITE,
+  "",
+  SIDE.CITY
+);
+
+const CITYZEN = new Character(
+  0,
+  "شهروند",
+  "قابلیت خاصی ندارد فقط هر روز صحب می کند و رای میگیرد.",
+  0,
+  "شهروند",
+  SIDE.CITY
+);
+
+const DOCTOR = new Character(
+  3,
+  "دکتر",
+  "هرشب یک نفر را انتخاب می کند و اگر مورد حمله قرارگیرد، آن نفر نجات پیدا می کند. فقط یک شب می تواند خودش را انتخاب کند.",
+  INFINITE,
+  "",
+  SIDE.CITY
+);
+
+const GOD_FATHER = new Character(
+  8,
+  "پدرخوانده",
+  "هرشب تصمیم میگیرد مافیا چه کسی را بکشد.",
+  INFINITE,
+  "رییس گروه",
+  SIDE.MAFIA
+);
+
+const MAFIA = new Character(
+  10,
+  "ساده مافیا",
+  "قابلیت خاصی ندارد فقط هر روز صحب می کند و رای میگیرد.",
+  0,
+  "",
+  SIDE.MAFIA
+);
+
+const JOKER = new Character(
+  7,
+  "جوکر",
+  "دو شب در طول بازی یک نفر را انتخاب می کند ، گرداننده گروه آن بازیکن را با کارآگاه برعکس می گوید.",
+  2,
+  "شارلاتان",
+  SIDE.MAFIA
+);
+
+const SPACIAL = new Character(
+  9,
+  "حرفه ای",
+  "هر شب می تواند یک نفر را انتخاب کند اگر آن شخص مافیا باشد ، مافیا کشته می شود . اگر شهروند باشد ، کلانتر کشته می شود و اگر مستقل را انتخاب کند هیچ اتفاقی نمی افتد.",
+  INFINITE,
+  "کلانتر",
+  SIDE.CITY
+);
+
 var characters = [
   DOCTER_LECTER,
+  DIE_HARD,
+  DETECTIVE,
+  CITYZEN,
+  DOCTOR,
+  GOD_FATHER,
+  MAFIA,
+  JOKER,
+  SPACIAL,
 ];
+
+// endCharacterObjects
+
+let playerCharacter = "";
 
 const clicks = [
   {
@@ -144,36 +229,35 @@ const clicks = [
 
   {
     selector: ".next",
-    func(e) {
-      nextPage(e);
-      // checkCondition();
-    },
+    func: (e) => nextPage(e),
   },
+
   {
     selector: ".prev",
-    func(e) {
-      prevPage(e);
-    },
+    func: (e) => prevPage(e),
   },
+
   {
     selector: ".btn.cancle",
-    func(e) {
-      cancel(e);
-    },
+    func: (e) => cancel(e),
   },
+
   {
     selector: ".players .next",
-    // تابع تک خطی اینطوری باشد
     func(e) {
-      debugger;
       dom.smallCard();
       dom.card();
     },
   },
+
+  {
+    selector: ".rules .parent",
+    func: (e) => chooseSmallCard(e),
+  },
   {
     selector: ".card",
     // تابع تک خطی اینطوری باشد
-    func: (e) => $(e).toggleClass("selected"),
+    func: (e) => selectCard(e),
   },
 ];
 
@@ -208,18 +292,18 @@ var dom = {
     let res = "";
     Player.List.filter((i) => i.inGame == IN_GAME.ACTIVE).forEach((i) => {
       res += `
-      <div id="sc#${i.id}" class="parent">
+      <div chID="${i.characterId}" id="sc#${i.id}" class="parent">
       <span class="ligthShadow">${i.name}</span>
       <div class="smallCard pending">
         <div class="ImageParent ligthShadow">
-          <img src="./Icons/Question.png" alt="">
+          <img src="" alt="" >
         </div>
-        <div class="caracterName hide">
+        <div class="caracterName">
           <span class="miniTitle">دکترلکتر</span>
         </div>
       </div>
     </div>`;
-      $(".smallCaracter").html(res);
+      $(".smallCharacter").html(res);
     });
   },
   card: () => {
@@ -239,8 +323,39 @@ var dom = {
       </div>
     </div>`;
       //اصلاح شود
-      $(".mainCaracter").html(res);
+      $(".mainCharacter").html(res);
     });
+  },
+
+  ability: (e) => {
+    let res = "";
+    characters
+      .filter((i) => i.id == e)
+      .forEach((i) => {
+        res += `
+      <ability class=${i.side}>
+      <div class="ligthShadow">
+        <div class="imageParent">
+          <img src="./images/${i.side}/${i.id}.png" alt="${i.name}" />
+        </div>
+      </div>
+      <div class="box">
+        <name>
+          <span class="warning">${i.name}</span>
+          <span>(${i.nickname})</span>
+        </name>
+        <div class="info">
+          <span class="nigth"></span>
+          <span>${i.counterAbility}</span>
+        </div>
+      </div>
+      <p class="description">
+        ${i.description}
+      </p>
+      </ability>
+      `;
+        $("aboutCard").html(res);
+      });
   },
 };
 
@@ -317,13 +432,10 @@ defineMethod("remove", function (i) {
 
 const nextPage = (btn) => {
   let page = btn.closest("page");
-  let pnlBtn = btn.parent().addClass("hide");
-  let next = page.next("page").attr("active", true);
-  let prev = page.removeAttr("active");
-  let btns = page
-    .next()
-    .find(".panelEvent, .parentBtns ,.pnlBtns")
-    .removeClass("hide");
+  btn.parent().addClass("hide");
+  page.next("page").attr("active", true);
+  page.removeAttr("active");
+  page.next().find(".panelEvent, .parentBtns ,.pnlBtns").removeClass("hide");
 };
 
 const prevPage = (btn) => {
@@ -334,23 +446,52 @@ const prevPage = (btn) => {
   //   return false;
   // }
 
-  let pnlBtn = btn
-    .closest("page")
-    .prev()
-    .find(".panelEvent")
-    .removeClass("hide");
-  let item = page.removeAttr("active");
-  let prev = page.prev().attr("active", true);
-  let next = page.next().removeAttr("active");
+  btn.closest("page").prev().find(".panelEvent").removeClass("hide");
+  page.removeAttr("active");
+  page.prev().attr("active", true);
+  page.next().removeAttr("active");
 };
 
 const cancel = (btn) => {
-  let page = btn.closest("page");
-  let welcomePage =
-    btn.closest(".pagesParent").find(".welcome").attr("active", "true") &&
+  btn.closest("page");
+
+  btn.closest(".pagesParent").find(".welcome").attr("active", "true") &&
     btn
       .closest(".pagesParent")
       .find(".welcome .welcomePage ")
       .removeClass("hide");
-  let here = btn.closest("page").removeAttr("active");
+  btn.closest("page").removeAttr("active");
+};
+
+const selectCard = (e) => {
+  if (
+    $(".parent").hasClass("selected") &&
+    e
+      .closest(".mainCharacter")
+      .children(".card.selected")
+      .removeClass("selected")
+  ) {
+    e.toggleClass("selected");
+    $(".rules .parent.selected").attr("chID", e.attr("id"));
+    $(".rules .parent.selected img").attr(
+      "src",
+      `./images/${e.side}/${e.attr("id")}.png`
+    );
+    $("ability").addClass(e.SIDE);
+    dom.ability(e.attr("id"));
+  }
+};
+
+const chooseSmallCard = (e) => {
+  if (
+    e
+      .closest(".smallCharacter")
+      .children("div.selected")
+      .removeClass("selected")
+  ) {
+    $(e).toggleClass("selected");
+    if (e.attr("chID") != $(".card").attr("id")) {
+      $(".card").removeClass("selected");
+    }
+  }
 };

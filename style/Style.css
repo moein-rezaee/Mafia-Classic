@@ -263,48 +263,73 @@ img {
 
 /* The snackbar - position it at the bottom and in the middle of the screen */
 .alertBox {
-  visibility: hidden; /* Hidden by default. Visible on click */
-  min-width: 250px; /* Set a default minimum width */
-  margin-left: -125px; /* Divide value of min-width by 2 */
-  background-color: #333; /* Black background color */
-  color: #fff; /* White text color */
-  text-align: center; /* Centered text */
-  border-radius: 2px; /* Rounded borders */
-  padding: 16px; /* Padding */
-  position: fixed; /* Sit on top of the screen */
-  z-index: 1; /* Add a z-index if needed */
-  left: 50%; /* Center the snackbar */
-  bottom: 30px; /* 30px from the bottom */
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 10px 16px;
+  position: fixed;
+  z-index: 150;
+  right: 30px;
+  bottom: 30px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-family: var(--txtFont);
 }
 
 /* Show the snackbar when clicking on a button (class added with JavaScript) */
 .alertBox.active {
   visibility: visible; /* Show the snackbar */
-  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-  However, delay the fade out process for 2.5 seconds */
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
 /* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
 
 @keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
 
 .alertBox title {
@@ -444,11 +469,11 @@ backWard.active {
   background-color: var(--Warning);
 }
 
-ability .box .mafia {
+aboutCard .box .mafia {
   background-color: var(--Warning);
 }
 
-ability .box .city {
+aboutCard .box .city {
   background-color: #338bff;
 }
 
@@ -808,6 +833,10 @@ page[active="true"] {
   position: relative;
 }
 
+.ImageParent img{
+  object-fit: cover;
+}
+
 .ImageParent.ligthShadow::before {
   top: -5px;
 }
@@ -962,7 +991,7 @@ page[active="true"] {
   position: relative;
 }
 
-.chooseCaracter ability {
+.chooseCaracter aboutCard {
   display: inline-block;
   width: 280px;
   float: right;
@@ -981,19 +1010,19 @@ page[active="true"] {
   background: #338bff;
 }
 
-.chooseCaracter ability .ligthShadow::after {
+.chooseCaracter aboutCard .ligthShadow::after {
   height: 60%;
   scale: 0.93;
 }
 
-.chooseCaracter ability .imageParent {
+.chooseCaracter aboutCard .imageParent {
   display: inline-block;
   width: 160px;
   margin-top: 30px;
   height: 210px;
 }
 
-.chooseCaracter ability .box {
+.chooseCaracter aboutCard .box {
   display: flow-root;
   width: 100%;
   text-align: right;
@@ -1001,14 +1030,14 @@ page[active="true"] {
   box-sizing: border-box;
 }
 
-.chooseCaracter ability .box div {
+.chooseCaracter aboutCard .box div {
   display: flex;
   gap: 5px;
   float: left;
   margin-top: 12px;
 }
 
-.chooseCaracter ability .box div span {
+.chooseCaracter aboutCard .box div span {
   display: flex;
   width: 30px;
   height: 30px;
@@ -1020,19 +1049,19 @@ page[active="true"] {
   align-items: flex-end;
 }
 
-.chooseCaracter ability .box div span a {
+.chooseCaracter aboutCard .box div span a {
   display: flow-root;
   margin-top: 4px;
 }
 
-.chooseCaracter ability .box div span.nigth {
+.chooseCaracter aboutCard .box div span.nigth {
   background-image: url(../Icons/Night.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 15px;
 }
 
-.chooseCaracter ability .description {
+.chooseCaracter aboutCard .description {
   display: flow-root;
   font-family: var(--txtFont);
   text-align: right;
@@ -1050,7 +1079,7 @@ page[active="true"] {
   font-size: 27pt;
 }
 
-.smallCaracter,
+.smallCharacter,
 .mainCaracter {
   display: flow-root;
   padding: 12px 0 0 0;
@@ -1061,7 +1090,13 @@ page[active="true"] {
   margin-top: 20px;
 }
 
-.smallCaracter.ligthShadow::after {
+interduce {
+  display: flow-root;
+  overflow-y: scroll;
+  height: calc(100% - 6px);
+}
+
+.smallCharacter.ligthShadow::after {
   width: calc(100% - 20px);
   height: 55px;
   scale: 1;
@@ -1069,7 +1104,7 @@ page[active="true"] {
   border-radius: 12px;
 }
 
-interduce .smallCaracter .parent {
+interduce .smallCharacter .parent {
   display: inline-block;
   width: 84px;
   height: 115px;
@@ -1083,12 +1118,8 @@ interduce .smallCaracter .parent {
   margin-left: 10px;
 }
 
-.smallCaracter .parent:first-child,
-.mainCaracter .card:first-child {
-  margin-left: 20px;
-}
 
-interduce .smallCaracter .parent span.ligthShadow {
+interduce .smallCharacter .parent span.ligthShadow {
   display: flow-root;
   padding: 0 0px;
   color: var(--secondText);
@@ -1096,22 +1127,22 @@ interduce .smallCaracter .parent span.ligthShadow {
   font-size: 10pt;
 }
 
-interduce .smallCaracter .parent span.ligthShadow::after {
+interduce .smallCharacter .parent span.ligthShadow::after {
   scale: 0.95;
   top: 3px;
   height: 30px;
   background: var(--grdLigthGray);
 }
 
-interduce .mainCaracter.ligthShadow::after {
-  width: calc(100% - 20px);
+interduce .mainCharacter.ligthShadow::after {
+  width: 100%;
   height: 100px;
   scale: 1;
   background: var(--grdLigthGray);
   border-radius: 12px;
 }
 
-interduce .smallCaracter .miniTitle {
+interduce .smallCharacter .miniTitle {
   display: flow-root;
   width: 100%;
   position: absolute;
@@ -1286,10 +1317,11 @@ interduce .smallCaracter .miniTitle {
   height: 193px;
   text-align: center;
   background-color: var(--txtDefaultColor);
+  border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
   position: relative;
-  border: 1px solid var(--border);
+  margin: 0 10px 10px 0;
 }
 
 /* nigthCaracyer */
@@ -1605,5 +1637,3 @@ interduce .smallCaracter .miniTitle {
 .nightBtns div {
   margin-left: 5px;
 }
-
-
