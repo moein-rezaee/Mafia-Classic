@@ -192,11 +192,6 @@ const clicks = [
           ".نام کاربر وارد شده کمتر از حد مجاز می باشد",
           "error"
         );
-        let box = $(".alertBox").addClass("active");
-        setTimeout(function () {
-          box.removeClass("active");
-        }, 3000);
-        return false;
       }
     },
   },
@@ -245,8 +240,18 @@ const clicks = [
   {
     selector: ".players .next",
     func(e) {
-      dom.smallCard();
-      dom.card();
+      if (Player.List.length < 5) {
+        message.show(
+          "خطا",
+          ".حداقل تعداد کاربر وارد شده 5 نفر می باشد",
+          "error"
+        );
+        return false;
+      } else {
+        dom.smallCard();
+        dom.card();
+      }
+      return true;
     },
   },
 
@@ -370,6 +375,11 @@ const message = {
                 <p class='txtBox'>${text}</p>
             </div>`;
     $("body").prepend(alert);
+    let box = $(".alertBox").addClass("active");
+    setTimeout(function () {
+      box.removeClass("active");
+    }, 3000);
+    return false;
   },
 };
 
