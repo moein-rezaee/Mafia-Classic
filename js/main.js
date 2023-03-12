@@ -82,7 +82,7 @@ const DOCTER_LECTER = new Character(
   "دکتر لکتر",
   "هرشب یک نفر را انتخاب می کند و اگر مورد حمله قرارگیرد، آن نفر نجات پیدا می کند. فقط یک شب می تواند خودش را انتخاب کند.",
   INFINITE,
-  "جراح",
+  "(جراح)",
   SIDE.MAFIA
 );
 
@@ -91,7 +91,7 @@ const DIE_HARD = new Character(
   "جان سخت",
   "دو شب در طول بازی به گرداننده اعلام مکیند که کارت های خارج شده از بازی را برای فردا رو کند یکبار در طول بازی از حمله شبانه درامان است.",
   2,
-  "گورکن",
+  "(گورکن)",
   SIDE.CITY
 );
 
@@ -109,7 +109,7 @@ const CITYZEN = new Character(
   "شهروند",
   "قابلیت خاصی ندارد فقط هر روز صحب می کند و رای میگیرد.",
   0,
-  "شهروند",
+  "",
   SIDE.CITY
 );
 
@@ -127,13 +127,13 @@ const GOD_FATHER = new Character(
   "پدرخوانده",
   "هرشب تصمیم میگیرد مافیا چه کسی را بکشد.",
   INFINITE,
-  "رییس گروه",
+  "(رییس گروه)",
   SIDE.MAFIA
 );
 
 const MAFIA = new Character(
   10,
-  "ساده مافیا",
+  "مافیا ساده",
   "قابلیت خاصی ندارد فقط هر روز صحب می کند و رای میگیرد.",
   0,
   "",
@@ -145,7 +145,7 @@ const JOKER = new Character(
   "جوکر",
   "دو شب در طول بازی یک نفر را انتخاب می کند ، گرداننده گروه آن بازیکن را با کارآگاه برعکس می گوید.",
   2,
-  "شارلاتان",
+  "(شارلاتان)",
   SIDE.MAFIA
 );
 
@@ -154,19 +154,19 @@ const SPACIAL = new Character(
   "حرفه ای",
   "هر شب می تواند یک نفر را انتخاب کند اگر آن شخص مافیا باشد ، مافیا کشته می شود . اگر شهروند باشد ، کلانتر کشته می شود و اگر مستقل را انتخاب کند هیچ اتفاقی نمی افتد.",
   INFINITE,
-  "کلانتر",
+  "(کلانتر)",
   SIDE.CITY
 );
 
 var characters = [
-  DOCTER_LECTER,
-  DIE_HARD,
-  DETECTIVE,
-  CITYZEN,
-  DOCTOR,
   GOD_FATHER,
   MAFIA,
   JOKER,
+  DOCTER_LECTER,
+  DETECTIVE,
+  DIE_HARD,
+  CITYZEN,
+  DOCTOR,
   SPACIAL,
 ];
 
@@ -245,6 +245,7 @@ const clicks = [
         );
         return false;
       } else {
+        $("aboutcard").html("");
         dom.smallCard();
         dom.card();
       }
@@ -257,9 +258,17 @@ const clicks = [
     func: (e) => chooseSmallCard(e),
   },
   {
-    selector: ".card",
+    selector: ".rules .card",
     // تابع تک خطی اینطوری باشد
     func: (e) => selectCard(e),
+  },
+  {
+    selector: ".rules .next",
+    func: (e) => dom.gamePlayeItem(e),
+  },
+  {
+    selector: ".gamePlay .item",
+    func: (e) => e.find(".checkbox").toggleClass("hide")
   },
 ];
 
@@ -294,14 +303,14 @@ var dom = {
     let res = "";
     Player.List.filter((i) => i.inGame == IN_GAME.ACTIVE).forEach((i) => {
       res += `
-      <div chID="${i.characterId}" id="sc#${i.id}" class="parent">
+      <div id="sc#${i.id}" class="parent">
       <span class="ligthShadow">${i.name}</span>
-      <div class="smallCard pending">
+      <div class="smallCard pending" chID="${i.characterId}">
         <div class="ImageParent ligthShadow">
-          <img src="" alt="" onerror='this.src=./images/Question.ong'>
+          <img src="" alt="" onerror="this.src='./images/Question.png'">
         </div>
         <div class="caracterName">
-          <span class="miniTitle">دکترلکتر</span>
+          <span class="miniTitle"></span>
         </div>
       </div>
     </div>`;
@@ -310,7 +319,7 @@ var dom = {
   },
   card: () => {
     let res = "";
-    characters.forEach((i) => {
+    characters.sort().forEach((i) => {
       res += `
     <div id="${i.id}"  class="card ${i.side}">
       <div class="caracter">
@@ -338,13 +347,13 @@ var dom = {
       <ability class=${i.side}>
       <div class="ligthShadow">
         <div class="imageParent">
-          <img src="./images/${i.side}/${i.id}.png" alt="${i.name}" />
+          <img src="./images/${i.side}/${i.id}.png" alt="${i.name}" onerror="this.src='./images/conductor.png'"/>
         </div>
       </div>
       <div class="box">
         <name>
-          <span class="warning">${i.name}</span>
-          <span>(${i.nickname})</span>
+          <span class='nameCharacter'>${i.name}</span>
+          <span>${i.nickname}</span>
         </name>
         <div class="info">
           <span class="nigth"></span>
@@ -358,6 +367,36 @@ var dom = {
       `;
         $("aboutCard").html(res);
       });
+  },
+
+  gamePlayeItem: (e) => {
+    let res = "";
+    let id = e.attr("id");
+    // let character = characters.find((i) => i.id == id);
+    Player.List.filter((i) => i.inGame == IN_GAME.ACTIVE).forEach((i) => {
+      res += `
+    <div class="item">
+      <div class="card ${i.side} unknow">
+          <span class="cardTitle ligthShadow">${i.name}</span>
+          <div class="caracter">
+              <div class="shield">
+                  <div class="selectedCaracter">
+                      <img src="" alt="" onerror="this.src='./images/Question.png'">
+                  </div>
+              </div>
+              <div class="nameBox title">
+                 
+              </div>
+          </div>
+      </div>
+      <label class="checkbox ligthShadow hide">
+          <input type="checkbox" class="hide" checked="checked">
+          <span class="checkmark"></span>
+      </label>
+  </div>
+      `;
+      $(".nightCard").html(res);
+    });
   },
 };
 
@@ -471,36 +510,44 @@ const cancel = (btn) => {
 };
 
 const selectCard = (e) => {
+  $(".card.selected").removeClass("selected");
+  e.find(".card").addClass("selected");
+
   let id = e.attr("id");
-  let character =  characters.find(i => i.id == id);
+  let character = characters.find((i) => i.id == id);
+  let card=$(".rules .parent .smallCard.selected");
   if (
-    $(".parent").hasClass("selected") &&
+    $(".parent .smallCard").hasClass("selected") &&
     e
       .closest(".mainCharacter")
       .children(".card.selected")
       .removeClass("selected")
   ) {
     e.toggleClass("selected");
-    $(".rules .parent.selected").attr("chID", id);
-    $(".rules .parent.selected img").attr(
+    $(".rules .parent .smallCard.selected").attr("chID", id);
+    $(".rules .parent .smallCard.selected img").attr(
       "src",
       `./images/${character.side}/${id}.png`
     );
+    card.find(".miniTitle").text(`${character.name}`);
+    card.find(".miniTitle").addClass(character.side);
+
+    $(`.rules .parent .smallCard[chID=${$(".card.selected").attr("id")}]`).addClass(character.side)
     $("ability").addClass(e.SIDE);
     dom.ability(id);
   }
 };
 
 const chooseSmallCard = (e) => {
-  if (
-    e
-      .closest(".smallCharacter")
-      .children("div.selected")
-      .removeClass("selected")
-  ) {
-    $(e).toggleClass("selected");
-    if (e.attr("chID") != $(".card").attr("id")) {
-      $(".card").removeClass("selected");
-    }
+  let smallCard=e.find(".smallCard");
+  $(".smallCard.pending.selected").removeClass("selected");
+  smallCard.addClass("selected");
+
+  if (e.attr("chID") != $(".card").attr("id")) {
+    $(".card").removeClass("selected");
+  }
+
+  if (smallCard.hasClass("selected") != true) {
+    smallCard.addClass();
   }
 };
