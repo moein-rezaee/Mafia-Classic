@@ -1032,6 +1032,16 @@ page[active="true"] {
   color: #338bff;
 }
 
+.chooseCaracter ability.default .box .nameCharacter {
+  color: #FF33C2;
+}
+
+.chooseCaracter ability.default .info {
+  display: none;
+}
+
+
+
 .chooseCaracter ability .box .nameCharacter {
   font-size: 23pt;
 }

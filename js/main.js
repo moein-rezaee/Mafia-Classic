@@ -19,15 +19,18 @@ const IN_GAME = {
 
 const PLAYERS = "players";
 const CHARACTERS = "characters";
-
+let list = "";
 $(() => {
   clicks.forEach((i) => on.click(i.selector, i.func));
 
-  let list = storage.run(PLAYERS);
+  list = storage.run(PLAYERS);
   if (list && list.length > 0) {
     Player.List = list.fromJson();
     Player.List.forEach((i) => dom.addPlayer(i));
   }
+  $(".smallCharacter .parent").each(function () {
+    console.log($(this).attr("id"));
+  });
 });
 
 class Player {
@@ -72,7 +75,7 @@ class Character {
     this.description = description || "";
     this.counterAbility = counterAbility || INFINITE;
     this.nickname = nickname || "";
-    this.side = side || SIDE.CITY;
+    this.side = side || "default";
   }
 }
 
@@ -157,8 +160,17 @@ const SPACIAL = new Character(
   "(کلانتر)",
   SIDE.CITY
 );
+const CONDUCTOR = new Character(
+  100,
+  "گرداننده",
+  "برای انتخاب نقش، اسم بازیکن رو انتخاب کن و سپس نقشش رو انتخاب کن. توجه کن تا زمانی که بازیکن رو از حالت انتخاب در نیاری با انتخاب نقش، نقش بازیکن انتخاب شده عوض میشه.",
+  INFINITE,
+  "",
+  null
+);
 
 var characters = [
+  CONDUCTOR,
   GOD_FATHER,
   MAFIA,
   JOKER,
@@ -173,7 +185,7 @@ var characters = [
 // endCharacterObjects
 
 let playerCharacter = "";
-
+let characterObject = "";
 const clicks = [
   {
     selector: ".addPlayer .btn",
@@ -189,6 +201,7 @@ const clicks = [
           ".نام کاربر وارد شده کمتر از حد مجاز می باشد",
           "error"
         );
+        return false;
       }
     },
   },
@@ -246,6 +259,7 @@ const clicks = [
         return false;
       } else {
         $("aboutcard").html("");
+        dom.ability(CONDUCTOR.id);
         dom.smallCard();
         dom.card();
       }
@@ -262,13 +276,19 @@ const clicks = [
     // تابع تک خطی اینطوری باشد
     func: (e) => selectCard(e),
   },
+
   {
     selector: ".rules .next",
     func: (e) => dom.gamePlayeItem(e),
   },
+
   {
     selector: ".gamePlay .item",
-    func: (e) => e.find(".checkbox").toggleClass("hide")
+    func: (e) => gamePlayItem(e),
+  },
+  {
+    selector: ".gamePlay .watch",
+    func: (e) => $(".item .card").toggleClass("unknow")
   },
 ];
 
@@ -319,8 +339,10 @@ var dom = {
   },
   card: () => {
     let res = "";
-    characters.sort().forEach((i) => {
-      res += `
+    characters
+      .filter((i) => i.id != 100)
+      .forEach((i) => {
+        res += `
     <div id="${i.id}"  class="card ${i.side}">
       <div class="caracter">
         <div class="shield">
@@ -333,9 +355,9 @@ var dom = {
         </div>
       </div>
     </div>`;
-      //اصلاح شود
-      $(".mainCharacter").html(res);
-    });
+        //اصلاح شود
+        $(".mainCharacter").html(res);
+      });
   },
 
   ability: (e) => {
@@ -375,7 +397,7 @@ var dom = {
     // let character = characters.find((i) => i.id == id);
     Player.List.filter((i) => i.inGame == IN_GAME.ACTIVE).forEach((i) => {
       res += `
-    <div class="item">
+    <div class="item" cardID=${i.characterId}>
       <div class="card ${i.side} unknow">
           <span class="cardTitle ligthShadow">${i.name}</span>
           <div class="caracter">
@@ -509,13 +531,16 @@ const cancel = (btn) => {
   btn.closest("page").removeAttr("active");
 };
 
+let character = "";
+
 const selectCard = (e) => {
   $(".card.selected").removeClass("selected");
   e.find(".card").addClass("selected");
 
   let id = e.attr("id");
-  let character = characters.find((i) => i.id == id);
-  let card=$(".rules .parent .smallCard.selected");
+  character = characters.find((i) => i.id == id);
+  let side = character.side;
+  let card = $(".rules .parent .smallCard.selected");
   if (
     $(".parent .smallCard").hasClass("selected") &&
     e
@@ -524,6 +549,7 @@ const selectCard = (e) => {
       .removeClass("selected")
   ) {
     e.toggleClass("selected");
+    e.attr("disabled", "disabled");
     $(".rules .parent .smallCard.selected").attr("chID", id);
     $(".rules .parent .smallCard.selected img").attr(
       "src",
@@ -531,15 +557,21 @@ const selectCard = (e) => {
     );
     card.find(".miniTitle").text(`${character.name}`);
     card.find(".miniTitle").addClass(character.side);
-
-    $(`.rules .parent .smallCard[chID=${$(".card.selected").attr("id")}]`).addClass(character.side)
+    res.characterId = id;
+    res.side = side;
+    $(
+      `.rules .parent .smallCard[chID=${$(".card.selected").attr("id")}]`
+    ).addClass(character.side);
     $("ability").addClass(e.SIDE);
     dom.ability(id);
   }
 };
 
+let res = "";
+
 const chooseSmallCard = (e) => {
-  let smallCard=e.find(".smallCard");
+  res = Player.List.find((i) => i.id == e.attr("id").split("#")[1]);
+  let smallCard = e.find(".smallCard");
   $(".smallCard.pending.selected").removeClass("selected");
   smallCard.addClass("selected");
 
@@ -551,3 +583,20 @@ const chooseSmallCard = (e) => {
     smallCard.addClass();
   }
 };
+let card = "";
+const gamePlayItem = (e) => {
+  card = characters.find((i) => i.id == e.attr("cardID"));
+  let res = e.find(".card");
+  res.toggleClass("unknow");
+  e.find(".checkbox").toggleClass("hide");
+  if (res.hasClass("unknow")) {
+    e.find(".card img").attr("src", "");
+    e.find(".card .nameBox").text("");
+  } else {
+    e.find(".card img").attr("src", `./images/${card.side}/${card.id}.png`);
+    e.find(".card .nameBox").text(card.name);
+  }
+};
+
+
+
