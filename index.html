@@ -182,145 +182,13 @@
                     </div>
                 </div>
             </div>
-            <backWard>
-                <parent>
-                    <m-header>
-                        <a href="#" class="btn ico ligthShadow warning rigth closeModal">
-                            <icon class="close"></icon>
-                        </a>
-                        <div class="backWardTitle ligthShadow">
-                            <span>علت</span>
-                            <span class="friend">خروج</span>
-                        </div>
-                    </m-hearer>
-                    <m-content>
-                        <div class="election active">
-                            <h1 class="question">علت خروج بازیکن چی بود؟</h1>
-                            <a class="btn ligthShadow mafia">
-                                شات شبانه
-                            </a>
-                            <a class="btn ligthShadow mafia">
-                                رای خروج
-                            </a>
-                        </div>
-                        <div class="timer">
-                            <a href="#" class="btn ico ligthShadow Time play">
-                                <icon class="pause"></icon>
-                                <span class="counter">30</span>
-                            </a>
-                            <a href="#" class="btn ligthShadow stop">
-                                شروع مجدد
-                            </a>
-                        </div>
-                        <div class="kick">
-                            <h1 class="titleKick warning">«برگ سبز»</h1>
-                            <h3>غم از دست رفته</h3>
-                            <div>
-                                <h2>یک نفر را انتخاب کن</h2>
-                                <p>
-                                    فردا از غصه رفتن تو عزادار است و کلا در رای
-                    گیری شرکت داده نمی شود
-                                </p>
-                            </div>
-                        </div>
-                    </m-content>
-                </parent>
-            </backWard>
-       
     </page>
-    <page class="gamePlaye2">
+    <page class="gamePlay2">
      
         <div class="container">
           <div class="choosesCaracter">
             <div class="cards">
-              <div class="item">
-    
-                <div class="card unknow">
-                  <span class="cardTitle ligthShadow">مهرداد</span>
-                  <div class="caracter">
-                    <div class="shield">
-                      <div class="selectedCaracter">
-                        <img src="./Icons/Question.png" alt="Joker" />
-                      </div>
-                    </div>
-                    <div class="nameBox title">
-                        گادفادر
-                    </div>
-                  </div>
-                </div>
-    
-    
-                <label class="checkbox ligthShadow">
-                  <input type="checkbox" class="hide" checked="checked" />
-                  <span class="checkmark"></span>
-                </label>
-              </div>
-              <div class="item">
-    
-                <div class="card mafia">
-                  <span class="cardTitle ligthShadow">مهرداد</span>
-                  <div class="caracter">
-                    <div class="shield">
-                      <div class="selectedCaracter">
-                        <img src="./images/MafiaGroups/dcLakter.png" alt="Joker" />
-                      </div>
-                    </div>
-                    <div class="nameBox title">
-                        گادفادر
-                    </div>
-                  </div>
-                </div>
-    
-    
-                <label class="checkbox ligthShadow">
-                  <input type="checkbox" class="hide" checked="checked" />
-                  <span class="checkmark"></span>
-                </label>
-              </div>
-              <div class="item">
-    
-                <div class="card city">
-                  <span class="cardTitle ligthShadow">مهرداد</span>
-                  <div class="caracter">
-                    <div class="shield">
-                      <div class="selectedCaracter">
-                        <img src="./images/CityGroups/Doctor.png" alt="Joker" />
-                      </div>
-                    </div>
-                    <div class="nameBox title">
-                        گادفادر
-                    </div>
-                  </div>
-                </div>
-    
-                
-                <label class="checkbox ligthShadow">
-                  <input type="checkbox" class="hide" checked="checked" />
-                  <span class="checkmark"></span>
-                </label>
-              </div>
-              <div class="item">
-    
-                <div class="card city success">
-                  <span class="cardTitle ligthShadow">مهرداد</span>
-                  <div class="caracter">
-                    <div class="shield">
-                      <div class="selectedCaracter">
-                        <img src="./images/CityGroups/Doctor.png" alt="Joker" />
-                      </div>
-                    </div>
-                    <div class="nameBox title">
-                        گادفادر
-                    </div>
-                  </div>
-                </div>
-    
-                
-                <label class="checkbox ligthShadow">
-                  <input type="checkbox" class="hide" checked="checked" />
-                  <span class="checkmark"></span>
-                </label>
-              </div>
+
             </div>
             <div class="person">
               <a class="btn ligthShadow mafia disable">
@@ -375,7 +243,42 @@
      
     </page>
     <modal class="modal"></modal>
+    <backWard class="hide">
+      <parent>
+          <m-header>
+              <a href="#" class="btn ico ligthShadow warning rigth closeModal">
+                  <icon class="close"></icon>
+              </a>
+              <div class="backWardTitle ligthShadow">
+                  <span>علت</span>
+                  <span class="friend">خروج</span>
+              </div>
+          </m-hearer>
+          <m-content>
+              <div class="election active">
+                  <h1 class="question">علت خروج بازیکن چی بود؟</h1>
+                  <a class="btn ligthShadow mafia shut">
+                      شات شبانه
+                  </a>
+                  <a class="btn ligthShadow mafia exit">
+                      رای خروج
+                  </a>
+              </div>
+              <div class="timer">
+                  <a href="#" class="btn ico ligthShadow Time play">
+                      <icon class="pause"></icon>
+                      <span class="counter">30</span>
+                  </a>
+                  <a href="#" class="btn ligthShadow stop">
+                      شروع مجدد
+                  </a>
+              </div>
+              <div class="kick">
 
+              </div>
+          </m-content>
+      </parent>
+  </backWard>
     <script src="./js/lib/jquery-3.6.3.min.js"></script>
     <script src="./js/main.js"></script>
 </body>

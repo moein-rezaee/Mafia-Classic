@@ -29,94 +29,68 @@
   --titleSize: 15pt;
   --Transition: all 0.3 ease-in;
   /* grdSection */
-  --grdSecondWarning: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(104, 21, 21, 1) 0%,
-    rgba(225, 45, 45, 1) 86%,
-    rgba(225, 45, 45, 1) 100%,
-    rgba(0, 0, 0, 1) 100%
-  );
+  --grdSecondWarning: linear-gradient(0deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(104, 21, 21, 1) 0%,
+      rgba(225, 45, 45, 1) 86%,
+      rgba(225, 45, 45, 1) 100%,
+      rgba(0, 0, 0, 1) 100%);
 
-  --grdAccept: linear-gradient(
-    360deg,
-    rgba(39, 28, 227, 0) 0%,
-    rgba(137, 255, 124, 1) 100%
-  );
+  --grdAccept: linear-gradient(360deg,
+      rgba(39, 28, 227, 0) 0%,
+      rgba(137, 255, 124, 1) 100%);
 
   --grdSecondAccept: linear-gradient(180deg, #fff, rgb(73 242 54 / 94%) 100%);
 
-  --grdSelect: linear-gradient(
-    180deg,
-    rgba(95, 248, 67, 1) -13%,
-    rgba(80, 223, 132, 1) 52%,
-    rgb(54 178 244 / 85%) 122%
-  );
+  --grdSelect: linear-gradient(180deg,
+      rgba(95, 248, 67, 1) -13%,
+      rgba(80, 223, 132, 1) 52%,
+      rgb(54 178 244 / 85%) 122%);
 
-  --grdUnselect: linear-gradient(
-    180deg,
-    rgba(255, 158, 51, 1) 0%,
-    rgba(255, 91, 51, 1) 50%
-  );
+  --grdUnselect: linear-gradient(180deg,
+      rgba(255, 158, 51, 1) 0%,
+      rgba(255, 91, 51, 1) 50%);
 
-  --grdLightPurpule: linear-gradient(
-    180deg,
-    rgba(229, 51, 255, 1) 0%,
-    rgba(167, 51, 255, 1) 100%
-  );
+  --grdLightPurpule: linear-gradient(180deg,
+      rgba(229, 51, 255, 1) 0%,
+      rgba(167, 51, 255, 1) 100%);
 
-  --grdLightPink: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(255, 51, 51, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  --grdLightPink: linear-gradient(90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(255, 51, 51, 1) 35%,
+      rgba(0, 212, 255, 1) 100%);
 
-  --grdCity: linear-gradient(
-    180deg,
-    rgba(39, 28, 227, 0) 0%,
-    rgba(96, 164, 253, 1) 100%
-  );
+  --grdCity: linear-gradient(180deg,
+      rgba(39, 28, 227, 0) 0%,
+      rgba(96, 164, 253, 1) 100%);
 
-  --grdHardBlue: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(45, 123, 225, 1) 0%,
-    rgba(44, 123, 225, 1) 14.000000000000002%,
-    rgba(20, 57, 103, 1) 79%
-  );
+  --grdHardBlue: linear-gradient(180deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(45, 123, 225, 1) 0%,
+      rgba(44, 123, 225, 1) 14.000000000000002%,
+      rgba(20, 57, 103, 1) 79%);
 
-  --ligthShadow: linear-gradient(
-    360deg,
-    rgba(39, 28, 227, 0) 0%,
-    rgba(255, 255, 255, 0.648424) 100%
-  );
+  --ligthShadow: linear-gradient(360deg,
+      rgba(39, 28, 227, 0) 0%,
+      rgba(255, 255, 255, 0.648424) 100%);
 
-  --grdLigthGray: linear-gradient(
-    0deg,
-    rgb(137 137 137 / 0%) 0%,
-    rgb(215 215 215) 208%
-  );
+  --grdLigthGray: linear-gradient(0deg,
+      rgb(137 137 137 / 0%) 0%,
+      rgb(215 215 215) 208%);
 
-  --grdSecondDisabled: linear-gradient(
-    180deg,
-    rgba(39, 28, 227, 0) 0%,
-    rgba(0, 0, 0, 0.7148109243697479) 100%
-  );
+  --grdSecondDisabled: linear-gradient(180deg,
+      rgba(39, 28, 227, 0) 0%,
+      rgba(0, 0, 0, 0.7148109243697479) 100%);
 
-  --grdChoose: linear-gradient(
-    180deg,
-    rgb(110 208 80) 0%,
-    rgba(140, 255, 61, 1) 25%,
-    rgb(190 255 73) 50%
-  );
+  --grdChoose: linear-gradient(180deg,
+      rgb(110 208 80) 0%,
+      rgba(140, 255, 61, 1) 25%,
+      rgb(190 255 73) 50%);
 
-  --grdShadowText: linear-gradient(
-    0deg,
-    rgb(137 137 137 / 21%) 0%,
-    rgb(215 215 215) 208%
-  );
+  --grdShadowText: linear-gradient(0deg,
+      rgb(137 137 137 / 21%) 0%,
+      rgb(215 215 215) 208%);
 
   --grdShadowTop: linear-gradient(to bottom, #0000001c, #0000);
   --grdDie: linear-gradient(to bottom, #00000000, #ff0000c4);
@@ -212,13 +186,13 @@ img {
 }
 
 /* On mouse-over, add a grey background color */
-.checkbox:hover input ~ .checkmark {
+.checkbox:hover input~.checkmark {
   background-color: rgb(204 204 204 / 23%);
   transition: var(--Transition);
 }
 
 /* When the checkbox is checked, add a blue background */
-.checkbox input:checked ~ .checkmark {
+.checkbox input:checked~.checkmark {
   background: var(--grdChoose);
 }
 
@@ -230,7 +204,7 @@ img {
 }
 
 /* Show the checkmark when checked */
-.checkbox input:checked + .checkmark:after {
+.checkbox input:checked+.checkmark:after {
   display: block;
 }
 
@@ -371,23 +345,25 @@ img {
 /* endShowMessage */
 backWard,
 .modal {
-  display: none;
+  display: flow-root;
   width: 100%;
   height: 100%;
   background-color: #0000009e;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 200;
+}
+
+.modal {
+  display: none;
 }
 
 backWard parent {
   display: inline-block;
-  background: linear-gradient(
-    180deg,
-    rgb(212 212 212) 0%,
-    rgb(159 159 159) 100%
-  );
+  background: linear-gradient(180deg,
+      rgb(212 212 212) 0%,
+      rgb(159 159 159) 100%);
   padding: 0 15px 15px;
   position: absolute;
   left: 50%;
@@ -413,7 +389,7 @@ backWard m-header .closeModal icon {
   -webkit-mask-size: 17px;
 }
 
-backWard m-content > div {
+backWard m-content>div {
   display: none !important;
 }
 
@@ -518,6 +494,7 @@ aboutCard .box .city {
 
 .card.disabled {
   filter: grayscale(1);
+  cursor: not-allowed;
 }
 
 /* End Color */
@@ -548,9 +525,9 @@ aboutCard .box .city {
 .mafiaDie::after {
   content: "";
   display: flow-root;
-  width: 100%;
+  width: 52%;
   height: 100%;
-  background-image: url(../images/MafiaGroups/Die.png);
+  background-image: url(../images/Die.png);
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
@@ -683,11 +660,9 @@ page[active="true"] {
   display: flow-root;
   width: 100%;
   height: 200px;
-  background: linear-gradient(
-    180deg,
-    rgba(15, 155, 161, 0) 0%,
-    rgb(0 0 0 / 13%) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(15, 155, 161, 0) 0%,
+      rgb(0 0 0 / 13%) 100%);
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -703,8 +678,14 @@ page[active="true"] {
   height: 96%;
 }
 
-.gamePlay .caracter{
+.gamePlay .caracter,
+.gamePlay2 .caracter {
   height: calc(100% - 23px);
+}
+
+.item[disabled] {
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
 /* image */
@@ -771,11 +752,9 @@ page[active="true"] {
   -webkit-mask-image: url(../images/MafiaGroups/shadowShiled.png);
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: 92% 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(15, 155, 161, 0) 26%,
-    rgba(0, 0, 0, 0.378396) 97%
-  );
+  background: linear-gradient(180deg,
+      rgba(15, 155, 161, 0) 26%,
+      rgba(0, 0, 0, 0.378396) 97%);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -804,11 +783,9 @@ page[active="true"] {
   display: flow-root;
   width: 100%;
   height: 20px;
-  background: linear-gradient(
-    180deg,
-    rgba(15, 155, 161, 0) 0%,
-    rgba(0, 0, 0, 0.578396) 166%
-  );
+  background: linear-gradient(180deg,
+      rgba(15, 155, 161, 0) 0%,
+      rgba(0, 0, 0, 0.578396) 166%);
   position: absolute;
   bottom: 0;
 }
@@ -962,11 +939,9 @@ page[active="true"] {
   margin: 25px auto 0;
   padding: 0px 20px 20px;
   border-radius: 20px;
-  background: linear-gradient(
-    180deg,
-    rgb(212 212 212) 0%,
-    rgb(159 159 159) 100%
-  );
+  background: linear-gradient(180deg,
+      rgb(212 212 212) 0%,
+      rgb(159 159 159) 100%);
   border: 1px solid var(--secondText);
   box-sizing: border-box;
   height: calc(100% - 110px);
@@ -1021,6 +996,7 @@ page[active="true"] {
 .chooseCaracter ability.mafia .info span {
   background: var(--Warning);
 }
+
 .chooseCaracter ability.mafia .box .nameCharacter {
   color: var(--Warning);
 }
@@ -1028,6 +1004,7 @@ page[active="true"] {
 .chooseCaracter ability.city .info span {
   background: #338bff;
 }
+
 .chooseCaracter ability.city .box .nameCharacter {
   color: #338bff;
 }
@@ -1123,7 +1100,7 @@ page[active="true"] {
 
 }
 
-.mainCharacter  {
+.mainCharacter {
   display: flow-root;
   width: calc(100% - 50px);
   height: calc(100% - 50px);
@@ -1191,11 +1168,11 @@ interduce .smallCharacter .miniTitle {
   color: var(--backgroundDefault);
 }
 
-.smallCard .miniTitle.mafia{
+.smallCard .miniTitle.mafia {
   background-color: var(--Warning);
 }
 
-.smallCard .miniTitle.city{
+.smallCard .miniTitle.city {
   background-color: #338bff;
 }
 
@@ -1254,11 +1231,9 @@ interduce .smallCharacter .miniTitle {
 }
 
 .inputBox.ligthShadow::after {
-  background: linear-gradient(
-    180deg,
-    rgb(216 216 216 / 42%) 0%,
-    rgb(229 229 229 / 0%) 100%
-  );
+  background: linear-gradient(180deg,
+      rgb(216 216 216 / 42%) 0%,
+      rgb(229 229 229 / 0%) 100%);
 }
 
 .playerCondition .btn {
@@ -1323,11 +1298,9 @@ interduce .smallCharacter .miniTitle {
 }
 
 .headTitleConductor .txtBox.ligthShadow::after {
-  background: linear-gradient(
-    0deg,
-    rgb(137 137 137 / 12%) 0%,
-    rgb(215 215 215 / 0%) 208%
-  );
+  background: linear-gradient(0deg,
+      rgb(137 137 137 / 12%) 0%,
+      rgb(215 215 215 / 0%) 208%);
   height: 90px;
   width: calc(100% - 72px);
   top: 8px;
@@ -1409,9 +1382,10 @@ interduce .smallCharacter .miniTitle {
   display: none;
 }
 
-.nightCard .item{
+.nightCard .item {
   display: inline-block;
 }
+
 
 
 .conductor .aboutPlay {
@@ -1449,11 +1423,9 @@ interduce .smallCharacter .miniTitle {
 }
 
 .conductor .ligthShadow::after {
-  background: linear-gradient(
-    0deg,
-    rgb(137 137 137 / 12%) 0%,
-    rgb(215 215 215 / 0%) 208%
-  );
+  background: linear-gradient(0deg,
+      rgb(137 137 137 / 12%) 0%,
+      rgb(215 215 215 / 0%) 208%);
   height: 140px;
 }
 
@@ -1537,11 +1509,9 @@ interduce .smallCharacter .miniTitle {
 }
 
 .timer a.stop {
-  background: linear-gradient(
-    360deg,
-    rgba(255, 150, 51, 1) 0%,
-    rgba(255, 51, 51, 1) 100%
-  );
+  background: linear-gradient(360deg,
+      rgba(255, 150, 51, 1) 0%,
+      rgba(255, 51, 51, 1) 100%);
   font-size: 11pt;
   width: max-content;
   margin: 12px auto 30px;
@@ -1555,11 +1525,9 @@ interduce .smallCharacter .miniTitle {
 }
 
 .timer .Time.pauseGame {
-  background: linear-gradient(
-    360deg,
-    rgba(255, 51, 180, 1) 0%,
-    rgba(255, 51, 51, 1) 100%
-  );
+  background: linear-gradient(360deg,
+      rgba(255, 51, 180, 1) 0%,
+      rgba(255, 51, 51, 1) 100%);
 }
 
 .timer .Time.pauseGame .counter {
@@ -1621,6 +1589,10 @@ interduce .smallCharacter .miniTitle {
   gap: 12px 0;
   height: 100%;
   overflow: auto;
+}
+
+.choosesCaracter .item {
+  position: relative;
 }
 
 .caracterPersonName {

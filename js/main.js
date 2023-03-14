@@ -40,7 +40,7 @@ class Player {
     this.name = name;
     this.inGame = IN_GAME.ACTIVE;
     this.state = STATE.LIVE;
-    this.side = SIDE.MAFIA;
+    this.side = SIDE.CITY;
   }
   static List = [];
 
@@ -75,7 +75,7 @@ class Character {
     this.description = description || "";
     this.counterAbility = counterAbility || INFINITE;
     this.nickname = nickname || "";
-    this.side = side || "default";
+    this.side = side || "default" || SIDE.CITY;
   }
 }
 
@@ -184,6 +184,76 @@ var characters = [
 
 // endCharacterObjects
 
+// lastMove
+
+class lastMove {
+  constructor(id, title, subTitle, rule, show) {
+    this.id = "";
+    this.title = "" || null;
+    this.subTitle = "" || null;
+    this.description = "" || null;
+    this.show = true;
+  }
+}
+
+
+const lie = new lastMove(
+  "0",
+  "دروغ سیزده",
+  "یک دروغ درباره خودش می گوید",
+  "و گرداننده یا خدای بازی تایید می کند.مثلا اگر فردی که از بازی خارج می شود شهروند باید می تواند به عنوان دروغ بگوید من مافیا بودم و گرداننده می تواند دروغ را تایید کند.",
+  true,
+)
+
+const GreenCard = new lastMove(
+  "1",
+  "برگ سبز",
+  "غم از دست رفته",
+  "یک نفر را انتخاب کن ! فردا از غصه رفتن تو عزادار است و کلا در رای گیری شرکت داده نمی شود",
+  true,
+)
+const MIND = new lastMove(
+  "2",
+  "ذهن زیبا",
+  "اگر نقش کسی را دقیق حدس بزند در بازی می ماند.",
+  "توجه کنید که حدس زدن یک نقش از بین شهروند ها می تواند فرد را در بازی نگه دارد چون که اگر فردی که کارت را کشیده اگر از اعضای مافیا باشد می تواند با گفتم نقش یکی از هم تیمی هایش یک شب دیگر در بازی بماند و همین یک شب بیشتر ماندن در بازی شاید بازی را به نفع مافیا تمام کند",
+  true,
+)
+const CERMONY = new lastMove(
+  "3",
+  "جشن مافیا",
+  "فردا توی روز هیچکس از بازی بیرون نمی رود.",
+  "در مورد این کارت باید گفت که این جشن برای مافیا برگزار می شود و فردا فقط صحبت می شود و هیچکس از بازی با رای گیری بیرو نمیرود",
+  true,
+)
+const census = new lastMove(
+  "5",
+  "بخت و اقبال",
+  "یک نفر را انتخاب می کند و گرداننده بین این دو بازیکن قرعه مرگ میاندازد و کسی که ببرد تو بازی می ماند.",
+  "بخت و اقبال یکی از حساس ترین کارت های حرکت آخر است زیرا اگر مافیا این کارت را بکشد می تواند بازی را به نفع خودش تمام کند، پس از این کارت در بازی های حساس استفاده کنید",
+  true,
+)
+const redCarpet = new lastMove(
+  "6",
+  "فرش قرمز",
+  "فردی که فرش قرمز بگیرد فردا مستقیم به دفاعیه می رود.",
+  "حتی اگر آن فرد  هیچ رای نداشته باشد فردا در محاکمه می باشد باید دفاع کند و اگر کسی فرش قرمز داشته باشد شهردار بازی در مورد آن تصمیم می گیرد یعنی اگر حتی فردا کسی دیگر وارد دفاع نشود باز هم گرداننده بازی را در خواب نیم روزی برده تا شهردار بازی در مورد فردی که کارت فرش قرمز دارد تصمیم بگیرد",
+  true,
+)
+
+const lastMoveCards = [
+  lie,
+  GreenCard,
+  MIND,
+  CERMONY,
+  census,
+  redCarpet
+]
+
+
+// end astMove
+
+
 let playerCharacter = "";
 let characterObject = "";
 const clicks = [
@@ -283,12 +353,54 @@ const clicks = [
   },
 
   {
-    selector: ".gamePlay .item",
+    selector: ".gamePlay .item , .gamePlay2 .item",
     func: (e) => gamePlayItem(e),
   },
   {
-    selector: ".gamePlay .watch",
-    func: (e) => $(".item .card").toggleClass("unknow")
+    selector: ".gamePlay2 .checkbox",
+    func: (e) => checkProp(e),
+  },
+  {
+    selector: ".gamePlay .checkbox",
+    func(e) {
+      checkProp(e);
+    },
+  },
+  {
+    selector: "backWard .election .exit",
+    func(e) {
+      electionShut(e);
+    },
+  },
+  {
+    selector: "backWard .election .shut",
+    func(e) {
+      e.closest(".election").addClass("hide");
+      e.closest(".election").removeClass("active");
+      e.closest(".kick").addClass("active")
+      dom.finallMove();
+    },
+  },
+  {
+    selector: "backWard .closeModal",
+    func() {
+      closeModal();
+    },
+  },
+  {
+    selector: ".gamePlay .next",
+    func(e) {
+      gamePlayItem(e);
+      dom.gamePlayeItem(e)
+
+    },
+  },
+  {
+    selector: ".gamePlay2 .item",
+    func(e) {
+      e.find(".checkbox").toggleClass("hide");
+      // gamePlayItem(e)
+    },
   },
 ];
 
@@ -299,18 +411,14 @@ var dom = {
                         <icon class="disAgree"></icon>
                     </a>
                     <div class="inputBox ligthShadow left">
-                        <input type="text" placeholder="نام بازکن" value="${
-                          player.name
-                        }" disabled>
+                        <input type="text" placeholder="نام بازکن" value="${player.name
+      }" disabled>
                     </div>
-                    <label for="chk#${
-                      player.id
-                    }" class="checkbox ligthShadow rigth">
-                        <input id="chk#${
-                          player.id
-                        }" type="checkbox" class="hide" ${
-      player.inGame ? "checked" : ""
-    }>
+                    <label for="chk#${player.id
+      }" class="checkbox ligthShadow rigth">
+                        <input id="chk#${player.id
+      }" type="checkbox" class="hide" ${player.inGame ? "checked" : ""
+      }>
                         <span class="checkmark"></span>
                     </label>
                 </div>`;
@@ -343,7 +451,7 @@ var dom = {
       .filter((i) => i.id != 100)
       .forEach((i) => {
         res += `
-    <div id="${i.id}"  class="card ${i.side}">
+    <div id="${i.id}"  class="card ${i.side} big">
       <div class="caracter">
         <div class="shield">
           <div class="selectedCaracter">
@@ -397,7 +505,7 @@ var dom = {
     // let character = characters.find((i) => i.id == id);
     Player.List.filter((i) => i.inGame == IN_GAME.ACTIVE).forEach((i) => {
       res += `
-    <div class="item" cardID=${i.characterId}>
+    <div class="item" cardID=${i.characterId} playerID=${i.id}>
       <div class="card ${i.side} unknow">
           <span class="cardTitle ligthShadow">${i.name}</span>
           <div class="caracter">
@@ -418,8 +526,27 @@ var dom = {
   </div>
       `;
       $(".nightCard").html(res);
+      $(".choosesCaracter .cards").html(res)
     });
   },
+
+  finallMove: () => {
+    let i = randomCard();
+    let obj = lastMoveCards[i];
+    let res = `
+      <last>
+          <h1 class="titleKick warning">${obj.title}</h1>
+          <h3>${obj.subTitle}/h3>
+          <div>
+              <h2 class='hide'>یک نفر را انتخاب کن</h2>
+              <p>
+                ${obj.description}
+              </p>
+          </div>
+        </last>
+      `
+    $(".kick").html(res);
+  }
 };
 
 const message = {
@@ -536,6 +663,7 @@ let character = "";
 const selectCard = (e) => {
   $(".card.selected").removeClass("selected");
   e.find(".card").addClass("selected");
+  e.removeClass("big");
 
   let id = e.attr("id");
   character = characters.find((i) => i.id == id);
@@ -577,26 +705,63 @@ const chooseSmallCard = (e) => {
 
   if (e.attr("chID") != $(".card").attr("id")) {
     $(".card").removeClass("selected");
+    e.parents("interduce").find(".mainCharacter .card:not('.big')").addClass("disabled");
   }
 
   if (smallCard.hasClass("selected") != true) {
-    smallCard.addClass();
+    smallCard.addClass("selected");
   }
 };
 let card = "";
 const gamePlayItem = (e) => {
+  e.closest(".nightCard").find(".item .card:not('.unknow')").addClass("hide");
   card = characters.find((i) => i.id == e.attr("cardID"));
   let res = e.find(".card");
   res.toggleClass("unknow");
-  e.find(".checkbox").toggleClass("hide");
+  res.attr("disabled", "disabled");
+  // e.find(".checkbox").toggleClass("hide");
   if (res.hasClass("unknow")) {
     e.find(".card img").attr("src", "");
     e.find(".card .nameBox").text("");
   } else {
     e.find(".card img").attr("src", `./images/${card.side}/${card.id}.png`);
     e.find(".card .nameBox").text(card.name);
+    // $('.item.select').remove()
   }
 };
 
+let propCharacter = "";
+let palyerID = "";
+const checkProp = (e) => {
+  let palyerID = e.closest(".item").attr("playerID");
+  propCharacter = Player.List.find((i) => i.id == palyerID);
+  if (
+    e.closest(".item").find("input[type=checkbox]").prop("checked") == false
+  ) {
+    $("backWard").toggleClass("hide");
+  }
+
+  $("backWard .exit").attr("id", palyerID);
+  $("backWard .shut").attr("id", palyerID);
+};
 
 
+const electionShut = (e) => {
+  e.parents("body").find(`.gamePlay2 .item[playerID=${e.attr("id")}]`).addClass("mafiaDie");
+  e.parents("body").find(`.gamePlay2 .item[playerID=${e.attr("id")}]`).attr("disabled", "disabled");
+  e.parents("body").find(`.gamePlay2 .item[playerID=${e.attr("id")}] .card`).addClass("disabled");
+  closeModal();
+}
+
+
+const closeModal = () => {
+  $("backward").addClass("hide");
+  $(".shut").attr("id", "");
+  $(".exit").attr("id", "");
+}
+
+
+
+const randomCard = () => {
+  lastMoveCards[Math.floor((lastMoveCards.length / 2) + 1)];
+}
