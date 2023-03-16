@@ -623,6 +623,10 @@ icon {
   -webkit-mask-image: url(../Icons/pause.png);
 }
 
+.clock{
+  -webkit-mask-image: url(../Icons/timer.png);
+}
+
 /* EndIcon */
 
 .conatiner {
@@ -867,17 +871,17 @@ page[active="true"] {
   opacity: 0.65;
 }
 
-.gameOver::before {
+.gameOver::after {
   content: "";
   display: flow-root;
   width: 100%;
   height: 100%;
-  background-image: url(../images/MafiaGroups/Delete.png);
+  background-image: url(../images/Delete.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 50px;
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: translate(-74%, -60%);
   top: 40%;
   left: 50%;
   z-index: 100;
@@ -1539,16 +1543,17 @@ interduce .smallCharacter .miniTitle {
   text-align: center;
   font-size: 19pt;
   color: var(--Warning);
-  margin-top: 10px;
+  margin: 10px 0;
 }
 
 :is(.kick) :is(h2, h3, p) {
   text-align: center;
   color: var(--secondText);
+  font-size: 13pt;
 }
 
 .kick h3 {
-  font-size: 9pt;
+  font-size: 11pt;
 }
 
 .kick div {
